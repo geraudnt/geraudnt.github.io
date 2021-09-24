@@ -186,6 +186,12 @@ hr {
   margin:0 0 20px;
 }
 
+.profile {
+  width: 100px;
+  height: 100px;
+}
+
+
 footer {
   width:270px;
   float:left;
