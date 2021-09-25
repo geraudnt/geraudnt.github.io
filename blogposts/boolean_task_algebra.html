@@ -1,0 +1,406 @@
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>Geraud Nangue Tasse</title>
+
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/extra_min_styles.css">
+        <meta name="viewport" content="width=device-width">
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Custom CSS -->
+        <style>@media only screen and (max-width: 600px) {
+          .katex-display > .katex {
+              max-width: 100%;
+              overflow-x: auto;
+              overflow-y: hidden;
+            }
+          }
+          
+          tr {
+            color: #000;
+            border: 0px !important;
+          }
+          td {
+            background-color: #ffffff;
+          }
+          .toprule{
+          border-top: 4px solid #000 !important;
+          }
+          .midrule{
+          border-top: 2px solid #000 !important;
+          }
+          .bottomrule{
+          border-bottom: 4px solid #000 !important;
+          }
+          td:first-child {
+            text-align: left;
+          }
+          
+          .fig {
+              display: inline-block;
+              width: 150px;
+              height: 200px;
+          }
+          .fig img {
+              width: 100%;
+              height: 150px;
+          }
+          .fig div {
+              text-align: center;
+              width:100%;
+              height:50px;
+              overflow-y: auto;
+          }
+
+          .inlinefig {
+            overflow-x: auto;
+          }
+          .inlinefig div {
+            display: inline-flex;
+          }
+          
+          .inlinefig img {
+            width: 170px;
+            height: 170px;
+            padding-left: 12px;
+          }
+          
+        </style>
+        
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script>
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-118294862-1']);
+          _gaq.push(['_trackPageview']);
+          
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+        <!--  Custom Javascript -->
+        <script>window.onload = function() {
+            tasks = ['(B AND NOT P AND NOT S) OR (NOT B AND NOT P AND S)', '(B AND NOT P AND NOT S) OR (NOT B AND P AND NOT S) OR (NOT B AND NOT P AND S)', '(B AND NOT P AND NOT S) OR (NOT B AND P AND NOT S)', '(B AND NOT P AND NOT S) OR (NOT B AND P AND S)', '(B AND NOT P AND NOT S) OR (NOT B AND P) OR (NOT B AND S)', '(B AND NOT P AND NOT S) OR (NOT B AND P)', '(B AND NOT P AND NOT S) OR (NOT B AND S)', '(B AND NOT P AND S) OR (NOT B AND NOT P AND NOT S)', '(B AND NOT P AND S) OR (NOT B AND NOT S)', '(B AND NOT P AND S) OR (NOT B AND P AND NOT S)', '(B AND NOT P AND S) OR (NOT B AND P AND S) OR (NOT B AND NOT P AND NOT S)', '(B AND NOT P AND S) OR (NOT B AND P AND S)', '(B AND NOT P AND S) OR (NOT B AND P) OR (NOT B AND NOT S)', '(B AND NOT P AND S) OR (NOT B AND P)', '(B AND NOT P) OR (NOT B AND NOT S) OR (NOT P AND NOT S)', '(B AND NOT P) OR (NOT B AND P AND NOT S) OR (NOT P AND S)', '(B AND NOT P) OR (NOT B AND P AND NOT S)', '(B AND NOT P) OR (NOT B AND P AND S) OR (NOT P AND NOT S)', '(B AND NOT P) OR (NOT B AND P AND S)', '(B AND NOT P) OR (NOT B AND P) OR (NOT P AND NOT S)', '(B AND NOT P) OR (NOT B AND P) OR (NOT P AND S)', '(B AND NOT P) OR (NOT B AND P)', '(B AND NOT P) OR (NOT B AND S) OR (NOT P AND S)', '(B AND NOT P) OR (NOT P AND NOT S)', '(B AND NOT P) OR (NOT P AND S)', '(NOT B AND NOT P) OR (NOT B AND NOT S) OR (NOT P AND NOT S)', '(NOT B AND NOT P) OR (NOT B AND NOT S) OR (NOT P AND S)', '(NOT B AND NOT P) OR (NOT B AND NOT S)', '(NOT B AND NOT P) OR (NOT B AND S) OR (NOT P AND NOT S)', '(NOT B AND NOT P) OR (NOT B AND S) OR (NOT P AND S)', '(NOT B AND NOT P) OR (NOT B AND S)', '(NOT B AND NOT P) OR (NOT P AND NOT S)', '(NOT B AND NOT P) OR (NOT P AND S)', '(NOT B AND NOT S) OR (NOT P AND NOT S)', '(NOT B AND P AND NOT S) OR (NOT B AND NOT P AND S)', '(NOT B AND P AND NOT S) OR (NOT P AND S)', '(NOT B AND P AND S) OR (NOT B AND NOT P AND NOT S)', '(NOT B AND P AND S) OR (NOT P AND NOT S)', '(NOT B AND P) OR (NOT B AND NOT S)', '(NOT B AND P) OR (NOT B AND S)', '(NOT B AND P) OR (NOT P AND NOT S)', '(NOT B AND P) OR (NOT P AND S)', '(NOT B AND S) OR (NOT P AND S)', 'B AND NOT P AND NOT S', 'B AND NOT P AND S', 'B AND NOT P', 'B AND P', 'NOT B AND NOT P AND NOT S', 'NOT B AND NOT P AND S', 'NOT B AND NOT P', 'NOT B AND NOT S', 'NOT B AND P AND NOT S', 'NOT B AND P AND S', 'NOT B AND P', 'NOT B AND S', 'NOT B OR (NOT P AND NOT S)', 'NOT B OR (NOT P AND S)', 'NOT B OR NOT P', 'NOT B', 'NOT P AND NOT S', 'NOT P AND S', 'NOT P OR (NOT B AND NOT S)', 'NOT P OR (NOT B AND S)', 'NOT P']
+        
+            innerHTML = '<div align="center">'
+            for(var i=0; i<tasks.length; i++) {
+                if(i%8 == 0) { innerHTML = innerHTML.concat('<div align="center">'); }
+                name = tasks[i]
+                name = name.replaceAll(' ','-')
+                name = name.replaceAll('(','')
+                name = name.replaceAll(')','')
+                img = `<div class="fig"><img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_dts-${name}.gif" title="${tasks[i]}" alt="${tasks[i]}"> <div>${tasks[i]}</div> </div> `
+                innerHTML = innerHTML.concat(img)
+                if((i+1)%8 == 0) { innerHTML = innerHTML.concat('</div>'); }
+            }
+        
+            document.getElementById('all_compositions').innerHTML = innerHTML
+        
+            var images = document.images;
+            for (var i=0; i<images.length; i++) { images[i].src = images[i].src; }
+        };
+        </script>
+        
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+      <!-- The loading of KaTeX is deferred to speed up page rendering -->
+      <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+  
+      <!-- To automatically render math in text elements, include the auto-render extension: -->
+        
+      <script type="text/javascript">
+            function renderLatex(element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                         {left: "$$", right: "$$", display: true},
+                         {left: "$", right: "$", display: false},
+                         //{left: "\\(", right: "\\)", display: false},
+                         //{left: "\\[", right: "\\]", display: true}
+                    ]
+                });
+              }
+      </script>
+        
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+            onload="renderLatex(document.body);"></script>
+            
+            
+      <!--      <script type="text/javascript" async-->
+      <!--src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">-->
+      <!-- </script> -->
+            
+
+    </head>
+
+    <!-- ALL CONTENT -->
+    <div class="wrapper">
+    <!-- BODY -->
+    <body>
+
+    <!-- HEADER -->
+    <header>
+        <h1 align="middle">Geraud  <br> Nangue Tasse</h1>
+
+        <!-- Picture + Links + News -->
+        <div align="middle" style="margin-bottom: 10px">
+
+            <!-- Portrait -->
+            <img src="../files/images/geraud.png" alt="Portrait" WIDTH=180 style="margin-bottom: 8px;border-radius: 10px;">
+            <!-- <img src="files/images/geraud.png" alt="Portrait" class="portrait"> -->
+
+            <!-- Email -->
+            <div style="margin-bottom: 6px;"><img src="../files/images/email.jpg" WIDTH=175></div>
+
+            <!-- CV -->
+            <a href="../files/geraud_cv.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'CV Clicked']);" style="margin-right:14px;"><i class="ai ai-cv" style="font-size: 32px;"></i>
+            </a>
+
+            <!-- Git -->
+            <a href="https://github.com/geraudnt" onclick="_gaq.push(['_trackEvent', 'Click', 'git Clicked']);" style="margin-right:14px;">
+                <i class="fa fa-github" style="font-size:32px;"></i>
+                <!-- color: #A7A499" -->
+            </a>
+
+            <!-- Scholar -->
+            <a href="https://scholar.google.com/citations?user=CAfsMIsAAAAJ&hl=en" onclick="_gaq.push(['_trackEvent', 'Click', 'Scholar Clicked']);" style="margin-right:14px;">
+                <i class="ai ai-google-scholar big-icon" style="font-size:32px;"></i>
+            </a>
+
+            <!-- Twitter -->
+            <a href="https://twitter.com/geraudnt" onclick="_gaq.push(['_trackEvent', 'Click', 'Twitter Clicked']);">
+                <i class="fa fa-twitter" style="font-size:32px;"></i>
+            </a>
+            <br>
+            <br>
+        </div>
+
+
+    <!-- Put "nav" here for side bar nav -->
+        <ul class='navbar'>
+            <li class='navbar_li'><a href='../index.html'>Home</a></li>
+            <li class='navbar_li'><a href='../papers.html'>Publications</a></li>
+            <li class='navbar_li' id="selected"><a href='../blog.html'>Blog</a></li>
+        </ul>
+
+
+    </header>
+
+
+      <!-- BODY -->
+    <section>
+        <div class="title">
+            <h1>
+                <a href="../blogposts/boolean_task_algebra.html" title="A Boolean Task Algebra For Reinforcement Learning">A Boolean Task Algebra For Reinforcement Learning</a>
+            </h1>
+            <p><a href="https://www.raillab.org/content/boolean_algebra_neurips_2020.pdf" target="_blank">Paper at NeurIPS 2020 </a></p>
+            <time class="published" datetime="4th Nov, 2020">4th Nov, 2020</time>
+        </div>
+        
+      <h2>Abstract</h2>
+      <p>In this work, we investigate how to compose learned skills to solve their conjunction, disjunction, and negation in a manner that is both principled and optimal. We begin by introducing a goal-oriented value function that amortises the learning effort over future tasks. We then prove that by composing these value functions in specific ways, we immediately recover the optimal policies for the conjunction, disjunction, and negation of learned tasks. Finally, we formalise the logical composition of tasks in a Boolean algebra structure. This gives us a notion of base tasks which when learned, can be composed to solve any other task in a domain.</p>
+      <h2>Introduction</h2>
+      <p>In this post, we are interested in answering the following question: <em>given a set of existing skills, can we compose them to solve any task that is a logical combination of learned ones?</em>  To illustrate want we want, we will use the 2d video game domain of Van Niekerk [2019] where we train an agent to collect blue objects and separately train it to collect squares. We then see if we can obtain the skill to collect blue squares by averaging the learned value functions (since averaging is the best we can do from previous works [Haarnoja 2018, Van Niekerk 2019]). The respective value functions and trajectories are illustrated below.</p>
+      <div align="center" class="inlinefig">
+        <div align="center">
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-blue.png" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-square.png" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-avg.png" alt="" />
+        </div>
+        <div align="center">
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-blue.gif" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-square.gif" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-avg.gif" alt="" />
+        </div>
+      </div>
+      <p style="text-align:center;">Attempting to collect blue squares by composing learned skills - collecting blue objects and collecting squares - results in an agent that gets stuck optimally.</p>
+      <p>We can see that averaging over both value functions doesn’t work unless the agent is near the blue square (e.g the agent is stuck when it is in between the beige square and blue circle).
+      Notice how there is, in fact, no operator that can be used to optimally combine these value functions to collect blue squares.
+      This is because regular value functions only encode the values with respect to the best goal, and hence learn nothing about all other achievable goals. We address this issue in the next section. </p>
+      <h2>Extended value functions</h2>
+      <p>As we have discussed earlier, composing regular value functions does not give desired results because they only encode how to reach the best goal from each state. We therefore extended the regular definition of value functions to encode the values of achieving all goals, and not just the best one:
+      $$
+      \bar V^ { \bar \pi }(s,g) = \mathbb{E}_{ \bar \pi } \left[ \sum\limits_{t=0}^\infty \bar r(s_t, g, a_t) \right],
+      $$
+      where
+      $$
+      \bar r(s, g, a) = \begin{cases} \bar r_{MIN}  &amp; \text{if } g \neq s \in G \\ r(s, a) &amp;\text{otherwise} \end{cases}
+      $$</p>
+      <p>is the extended reward function. This extension to the regular reward function encourages the agent to learn about various goals by giving a large penalty ($\bar r_{MIN}$) if the agent reaches goals different from the ones it wanted to reach. So as the agent acts in the environment it receives the task rewards and learns the values of each state with respect to each goal it reaches. If it reaches a goal that is different from the one it wanted to reach, it receives a large penalty so it learns in the future to avoid it if possible. The result of this is that the agent learns to achieve any goal that is achievable, and also learns the value of achieving those goals for the current task. To illustrate this, we train a UVFA [Schaul 2015] using the extended reward definition for the task of collecting blue objects. The learned extended value function (EVF) and sample trajectories are illustrated below.</p>
+      <div align="center" class="inlinefig">
+      <img src="https://www.raillab.org/content/blog-2020-04-11-plots-blue.gif" alt="" />
+      <img src="https://www.raillab.org/content/blog-2020-04-11-plots-blue.png" alt="" />
+      <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-blue.gif" alt="" />
+      </div>
+      <p style="text-align:center;"> Learned EVF for collecting blue objects (left). The regular value function (middle) and policy (right) are obtained by simply maximising over goals.</p>
+      <h2>Composing extended value functions</h2>
+      <p>Now that we can learn value functions which encode how to achieve all goals for a given tasks, it is easy to see how we can leverage them to do zero-shot composition. Say an agent has learned the EVF for the task of collecting blue objects ($B$) and for collecting squares ($S$). We can now compose these value functions to not only solve their conjunction ($B  \text{ AND } S$) , but also to solve their union ($B  \text{ OR } S$) and negation ($\text{NOT } S$) as follows:</p>
+      <p>$$
+      \bar Q^*_{B \text{ AND } S}(s,g,a) = min \{ \bar Q^*_B(s,g,a), \bar Q^*_S(s,g,a) \},
+      $$</p>
+      <p>$$
+      \bar Q^*_{B \text{ OR } S}(s,g,a) = max \{ \bar Q^*_B(s,g,a), \bar Q^*_S(s,g,a) \},
+      $$</p>
+      <p>$$
+      \bar Q^{*}_{\text{NOT } S}(s,g,a) = ( \bar Q^{*}_{MAX}(s,g,a) + \bar Q^{*}_{MIN}(s,g,a)) - \bar Q^{*}_S(s,g,a),
+      $$</p>
+      <p>where $\bar Q^{*}_{MAX}$ and $\bar Q^{*}_{MIN}$ are respectively the EVFs for the tasks where the agent receives maximum reward and minimum reward for all goals.</p>
+      <div align="center" class="inlinefig">
+        <div align="center">
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-blue.gif" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-square.gif" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-and.gif" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-or.gif" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-not.gif" alt="" />
+        </div>
+        <div align="center">
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-blue.png" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-square.png" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-and.png" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-or.png" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-not.png" alt="" />
+        </div>
+        <div align="center">
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-blue.gif" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-square.gif" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-and.gif" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-or.gif" alt="" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-not.gif" alt="" />
+        </div>
+      </div>
+      <p style="text-align:center;"> 
+      Demonstrating zero-shot composition using learned extended value functions. The top row shows the extended value functions and the bottom one shows the trajectories obtained by maximising over goals. After learning the extended value functions for collecting blue objects and collecting squares, we can now solve their conjunction (collecting blue squares), their disjunction (collecting blue or square objects) and their negation (e.g collecting objects that are not squares).
+      </p>
+      <p>If we consider the same family of tasks as Van Niekerk [2019] where (i) the tasks have <em>the same deterministic transition dynamics</em> and differ only in reward functions, (ii) the reward functions differ only when entering terminal states (i.e for all non-terminal states, the rewards must be the same), then we can show that this composition approach is provably optimal in general.
+      While this is a restricted family of tasks, it still allows for tasks with sparse rewards. For instance, an agent can receive
+      $-1$ everywhere and $+1$ for entering the current task's terminal states.</p>
+      <h3>More complex logical compositions</h3>
+      <p>Now that we can compose existing skills to solve the conjunction, disjunction, and negation of tasks without further learning, we can also combine these operators to solve arbitrary logical compositions of tasks without further learning. For example, after learning how to collect blue objects and then learning how to collect squares, and agent can compose the learned EVFs to solve their exclusive-or ($B \text{ XOR } S = (B \text{ OR } S) \text{ AND } \text{NOT } (B \text{ AND } S$), where the agent needs to collect objects that are blue or square but not both:</p>
+      <p>$$
+      \bar Q^*_{B \text{ XOR } S}(s,g,a) = min \{ max \{ \bar Q^*_B(s,g,a), \bar Q^*_S(s,g,a) \}, ( \bar Q^{*}_{MAX}(s,g,a) + \bar Q^{*}_{MIN}(s,g,a)) \\ - min \{ \bar Q^*_B(s,g,a), \bar Q^*_S(s,g,a) \} \}
+      $$</p>
+      <div align="center" class="inlinefig">
+      <img src="https://www.raillab.org/content/blog-2020-04-11-plots-xor.gif" alt="" />
+      <img src="https://www.raillab.org/content/blog-2020-04-11-plots-xor.png" alt="" />
+      <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-xor.gif" alt="" />
+      </div>
+      <p style="text-align:center;"> Composed skill for collecting blue or square objects but not blue squares.</p>
+      <h2>Boolean task algebra</h2>
+      <p>We have seen above how an agent can leverage existing skills to solve arbitrary logical composition of tasks without further learning. Interestingly, if the tasks have Boolean goal rewards (e.g $-1$ for reaching undesirable goal states and $+1$ for reaching desirable ones), then we can easily formalise their logical compositions in a Boolean algebra structure as follows: </p>
+      <p>$$
+      M_1 \text{ AND } M_2 = (\mathcal{S},\mathcal{A},p,r_{M_1 \text{ AND  } M_2}) \text{, where } r_{M_1 \text{ AND  } M_2}(s,a) = min \{ r_{M_1}(s,a), r_{M_2}(s,a) \},
+      $$</p>
+      <p>$$
+      M_1 \text{ OR } M_2 = (\mathcal{S},\mathcal{A},p,r_{M_1 \text{ OR } M_2}) \text{, where } r_{M_1 \text{ OR } M_2}(s,a) = max \{ r_{M_1}(s,a), r_{M_2}(s,a) \},
+      $$</p>
+      <p>$$
+      \text{NOT } M = (\mathcal{S},\mathcal{A},p,r_{\text{NOT } M}) \text{, where } r_{\text{NOT } M}(s,a) = ( r_{M_{MAX}}(s,a) + r_{M_{MIN}}(s,a)) - r_M(s,a),
+      $$</p>
+      <p>where $M_1$, $M_2$, $M$ are arbitrary tasks, and $M_{MAX}$, $M_{MIN}$ are respectively the tasks where the agent receives maximum reward and minimum reward for all goals.</p>
+      <p>The Boolean task algebra gives us a formal notion of base tasks, which is a minimal set of tasks that can be used to generate all other tasks via arbitrary logical compositions. To obtain a set of base tasks, we can first assign a Boolean label to each goal in a table, and then use the columns of the table as base tasks. The desirable goals for each base task are then those goals with a value of 1 according to the table. This is illustrated below for the 2d video game domain. In general, an environment with $n$ goals has a logarithmic number of base tasks ($\lceil \log_2n \rceil$) which can be used to specify an exponential number of total tasks ($2^n$).</p>
+      <div align="center">
+      <table style="width:300px;text-align:center;">
+      <tr class="toprule">
+          <td>Goals</td>
+          <td>P</td> 
+          <td>B</td>
+          <td>S</td>
+        </tr>
+        <tr class="midrule">
+          <td>Beige circle</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Beige square</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Blue circle</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Blue square</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Purple circle</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr class="bottomrule">
+          <td>Purple square</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+        </tr>
+      </table>
+      </div>
+      <p style="text-align:center;">Boolean table showing base tasks for the 2d video game domain.</p>
+      <h3>Generalising over a task space by learning base skills</h3>
+      <p>By combining the notion of base tasks introduced above with the zero-shot composition of EVFs obtained earlier, we get a minimal set of skills which when learned can be used to solve any other task in an environment. To illustrate this, we first learn the EVFs for the following base tasks in the 2d video game domain: Collect purple objects ($P$), collect blue objects ($B$), and collect squares ($S$). Sample trajectories are shown below.</p>
+      <div align="center" class="inlinefig">
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_dts-P.gif" alt="blog-2020-04-11-trajectories_dts-P.gif" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_dts-B.gif" alt="blog-2020-04-11-trajectories_dts-B.gif" />
+        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_dts-S.gif" alt="blog-2020-04-11-trajectories_dts-S.gif" />
+      </div>
+      <p style="text-align:center;">Learned base skills for collecting purple objects, blue objects, and squares respectively.</p>
+      <p>We now compose the learned base skills to solve all $2^6=64$ tasks in the domain. The respective Boolean expressions and sample trajectories are shown below.</p>
+      <div id="all_compositions" align="center">        
+        <img src="../files/images/loading.gif" alt="Loading trajectories" />
+      </div>
+      <p style="text-align:center;">Trajectories for all 64 tasks obtained by composing base skills. The expressions for each task where obtained from the Boolean table by using the sum-of-products method.</p>
+      <h2>Conclusion</h2>
+      <p>We have shown how to compose tasks using the standard Boolean algebra operators. These composite tasks can be solved without further learning by first learning goal-oriented value functions, and then composing them in a similar manner. We believe this is a step towards both interpretable RL—since both the tasks and optimal value functions can be specified using Boolean operators—and the ultimate goal of lifelong learning agents, which are able to solve combinatorially many tasks in a sample-efficient manner.</p>
+      <h2>Additional Resources</h2>
+      <p>For more details please refer to the <a href="https://www.raillab.org/content/boolean_algebra_neurips_2020.pdf">full paper</a> and see the video presentation below. The poster can be found <a href="https://www.raillab.org/content/NeurIPS2020_boolean_algebra_poster.pdf">here</a> and the code for all the experiments can be found on GitHub <a href="https://github.com/geraudnt/boolean_composition">here</a>.</p>
+      <div align="center" style="text-align:center; margin-bottom:1em">
+        <object align="center" width="425" height="350">
+          <param name="movie" value="https://www.youtube.com/v/uBjThWZY8uc" />
+          <param name="wmode" value="transparent" />
+          <embed src="https://www.youtube.com/v/uBjThWZY8uc"
+                 type="application/x-shockwave-flash"
+                 wmode="transparent" width="425" height="350" />
+        </object>
+        </div>
+      <h2>References</h2>
+      <ol>
+      <li>[Van Niekerk 2019] Van Niekerk, B., James, S., Earle, A., and Rosman, B. Composing value functions in reinforcement
+      learning. In Proceedings of the 36th International Conference on Machine Learning, 2019.</li>
+      <li>[Haarnoja 2018] Haarnoja, T., Pong, V., Zhou, A., Dalal, M., Abbeel, P., and Levine, S. Composable deep reinforcement
+      learning for robotic manipulation. In IEEE International Conference on Robotics and Automation, 2018.</li>
+      <li>[Schaul 2015] Schaul, T., Horgan, D., Gregor, K., and Silver, D. Universal value function approximators. In
+      Proceedings of the 32nd International Conference on Machine Learning, 2015.</li>
+      </ol>
+
+      </section>
+    </body>
+
+    <footer>
+      <p align=middle><small>Theme based on <a href="https://github.com/david-abel/minimal">David Abel's</a> version of <a href="https://github.com/orderedlist/minimal">minimal</a></small>
+        <br> <small>Copyright Geraud Nangue Tasse <script>document.write(new Date().getFullYear())</script></small>
+      </p>
+    </footer>
+    </div>
+</html>

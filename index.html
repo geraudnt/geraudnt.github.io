@@ -1,35 +1,367 @@
+
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Minimal by Steve Smith</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>Geraud Nangue Tasse</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/extra_min_styles.css">
+        <meta name="viewport" content="width=device-width">
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script>
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-118294862-1']);
+          _gaq.push(['_trackPageview']);
+          
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    </head>
+
+    <!-- ALL CONTENT -->
     <div class="wrapper">
-      <header>
-        <h1 align="middle">Geraud Nangue Tasse</h1>
-        <p>Content in construction. Maybe watch some quality anime in the meantime?</p>
-        <ul>
-          <li><a href="files/geraud_cv.pdf">Download <strong>CV</strong></a></li>
-          <!-- <li><a href="https://www.linkedin.com/in/geraud-nangue-tasse-264281a5/"> Goto<strong>Linkedin</strong></a></li> -->
-          <li><a href="https://github.com/geraudnt">Goto<strong>GitHub</strong></a></li>
-          <li><a href="https://scholar.google.com/citations?user=CAfsMIsAAAAJ&hl=en">Goto<strong>Scholar</strong></a></li>
+    <!-- BODY -->
+    <body>
+
+    <!-- HEADER -->
+    <header>
+        <h1 align="middle">Geraud  <br> Nangue Tasse</h1>
+
+        <!-- Picture + Links + News -->
+        <div align="middle" style="margin-bottom: 10px">
+
+            <!-- Portrait -->
+            <img src="files/images/geraud.png" alt="Portrait" WIDTH=180 style="margin-bottom: 8px;border-radius: 10px;">
+            <!-- <img src="files/images/geraud.png" alt="Portrait" class="portrait"> -->
+
+            <!-- Email -->
+            <div style="margin-bottom: 6px;"><img src="files/images/email.jpg" WIDTH=175></div>
+
+            <!-- CV -->
+            <a href="files/geraud_cv.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'CV Clicked']);" style="margin-right:14px;"><i class="ai ai-cv" style="font-size: 32px;"></i>
+            </a>
+
+            <!-- Git -->
+            <a href="https://github.com/geraudnt" onclick="_gaq.push(['_trackEvent', 'Click', 'git Clicked']);" style="margin-right:14px;">
+                <i class="fa fa-github" style="font-size:32px;"></i>
+                <!-- color: #A7A499" -->
+            </a>
+
+            <!-- Scholar -->
+            <a href="https://scholar.google.com/citations?user=CAfsMIsAAAAJ&hl=en" onclick="_gaq.push(['_trackEvent', 'Click', 'Scholar Clicked']);" style="margin-right:14px;">
+                <i class="ai ai-google-scholar big-icon" style="font-size:32px;"></i>
+            </a>
+
+            <!-- Twitter -->
+            <a href="https://twitter.com/geraudnt" onclick="_gaq.push(['_trackEvent', 'Click', 'Twitter Clicked']);">
+                <i class="fa fa-twitter" style="font-size:32px;"></i>
+            </a>
+            <br>
+            <br>
+        </div>
+
+
+    <!-- Put "nav" here for side bar nav -->
+        <ul class='navbar'>
+            <li class='navbar_li' id="selected"><a href='index.html'>Home</a></li>
+            <li class='navbar_li'><a href='papers.html'>Publications</a></li>
+            <li class='navbar_li'><a href='blog.html'>Blog</a></li>
         </ul>
-      </header>
-      
-      <footer>
-        <p><small>Theme based on <a href="https://github.com/orderedlist/minimal">minimal</a></small></p>
-        <p><small>Copyright Geraud Nangue Tasse <script>document.write(new Date().getFullYear())</script></small></p>
-      </footer>
+
+
+    </header>
+
+
+      <!-- BODY -->
+    <section>
+        <h3>Welcome!</h3>
+
+        <p>
+          I am a Ph.D. student in Computer Science at the <a href="https://www.wits.ac.za/">University of the Witwatersrand (Wits)</a>, advised by Professor <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>. I am also a member of the <a href="https://raillab.org/">RAIL Lab research group</a>.
+          Before moving to Wits for my M.Sc, I did my B.Sc in Computer Science, Pure&Applied Mathematics and Physics at <a href="https://www.ru.ac.za/">Rhodes University</a>.
+        </p>
+        
+        <!-- NEWS -->
+        <!-- <h3>News</h3>
+            <ul>
+                <li>September 2021: I am getting married! I will be away from email September 15 - October 6, 2021.</li>
+                <li>July 2021: Held a <a href="https://mementor.net/#/session/60f675b31e0f8461fcf58da1">mentoring session</a> via <a href="https://mementor.net/#/">mementor</a>.
+                <li>July 2021: Spotlight at the <a href="https://lyang36.github.io/icml2021_rltheory/">RL Theory workshop</a> at ICML on our paper, <a href="https://david-abel.github.io/papers/wkshp_icml2021_bpd.pdf">Bad-Policy Density</a>.</li>
+                <li>July 2021: Talk at Purdue.</li>
+                <li>May 2021: New preprint out on <a href="https://arxiv.org/pdf/2105.06948.pdf">Control of Representations</a>, led by <a href="https://markkho.github.io/">Mark Ho</a>.</li>
+                <li>May 2021: Co-hosting a panel on the philosophy of AGI at ICLR with <a href="https://www.jakebeck.com/">Jacob Beck</a> and <a href="https://clarelyle.com/">Clare Lyle</a>.</li>
+                <li>Apr. 2021: New ICML paper out on <a href="https://arxiv.org/pdf/2103.00107.pdf">Peng’s Q(λ)</a>, led by <a href="https://tadashik.github.io/">Tadashi Kozuno</a> and <a href="https://robintyh1.github.io/">Yunhao Tang</a>.</li>
+                <li>Feb. 2021: Guest lecture in <a href="https://iacs.seas.harvard.edu/people/chris-tanner">Chris Tanner's</a> capstone <a href="https://www.capstone.iacs.seas.harvard.edu/">course</a> at Harvard.</li>
+                <li>Dec. 2020: Talk(s) in <a href="http://grla.wikidot.com/frl">GRLA</a>.</li>
+                <li>Dec. 2020: <a href="papers/aaai2021_lipschitz.pdf">Lipschitz Lifelong RL</a> accepted to AAAI.</li>
+                <li>Oct. 2020: I joined DeepMind London as a Research Scientist.</li>
+                <li>Sep. 2020: I gave a guest lecture in <a href="https://iacs.seas.harvard.edu/people/chris-tanner">Chris Tanner's</a> capstone <a href="https://www.capstone.iacs.seas.harvard.edu/">course</a> at Harvard.</li>
+
+                <li>Sep. 2020: I moved to London.</li>
+                <li>Aug. 2020: <a href="https://david-abel.github.io/blog/posts/vpsa_aistats_2020.html" onclick="_gaq.push(['_trackEvent', 'Click', 'ais blog post (news) Clicked']);">New blog post</a> with collaborators summarizing our AISTATS <a href="https://david-abel.github.io/papers/aistats2020_vpsa-full.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'ais bp (news) Clicked']);">paper</a>.</li>
+                <li>June 2020: New ICML <a href="https://arxiv.org/pdf/2006.15085.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'icml aff (news) Clicked']);">paper</a> out on affordances in RL.</li>
+                <li>Apr. 2020: My <a href="https://david-abel.github.io/thesis.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'Thesis (a) Clicked']);">dissertation</a> is done!</li>
+                <li>Apr. 2020: I defended my thesis.</li>
+                <li>Mar. 2020: New AISTATS <a href="https://david-abel.github.io/papers/aistats2020_vpsa-full.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'ais full (news) Clicked']);">paper</a> out on state-action abstraction.</li>
+
+            </ul> -->
+
+
+        <!-- INTERESTS -->
+        <h3> Interests </h3>
+
+        <p>
+          I have always been fascinated by the immense potential for good of creating intelligent systems---the pinnacle of which is artificial general intelligence (AGI). My main research interests lie in reinforcement learning (RL) since it is the subfield of machine learning with the most potential for achieving AGI (through embodied agents that leverage the other AI fields where appropriate).
+       	</p>
+
+        <p>
+            I am currently interested in techniques that allow an agent to leverage past knowledge to solve new tasks quickly. One of my main focus is on <i>composition</i> techniques, which allows an agent to leverage existing skills to build complex, novel behaviours. During my <a href="files/papers/Thesis_msc.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'Thesis (b) Clicked']);">M.Sc research</a>, I introduced a formal framework for specifying tasks using logic operators (<i>AND</i>, <i>OR</i>, <i>NOT</i>), and how to similarly apply them on learned skills to generate provably optimal solutions to new tasks.
+            Not only does this allow for safer and interpretable reward specification---since any new task reward function can be composed of well-understood components---it also leads to a combinatorial explosion in an agent’s ability.
+            These are particularly important for agents in a multitask or lifelong setting.
+        </p>
+
+        <p>
+          Here are a couple milestones I think are needed on the road to AGI, and which I am currently working towards:
+            <ol>
+              <li>
+                Developing a provably general knowledge representation for transfer learning in RL, but not too general (it needs to be sufficiently constrained to be practical).
+              </li>
+              <li>
+                Creating principled methods for efficiently learning <i>base</i> skills with said knowledge represention.
+              </li>
+              <li>
+                Creating principled methods for agents to do any computation over skills with no/minimal further learning. That is, creating agents that are <i></i>Turing</i> complete in skill space.
+              </li>
+            </ol>  
+        </p>
+        	
+        </p>
+
+
+        <!-- FEATURED PUBLICATIONS -->
+        <h3> Featured Research </h3>
+
+
+        <table style="margin-top:-12px;">
+
+            <!-- Work 2 -->
+            <tr style="border-bottom:1px solid #e5e5e5;">
+                <!-- IMAGE -->
+                <td>
+                    <img class="workPicture" src="files/images/fli_composition.png" alt="Thesis overview">
+                </td>
+
+                <!-- TITLE AND INFO -->
+                <td>
+                    <br>
+                    <div id="indexWorkText">
+                        <!-- Title + Link -->
+                        <b><a href="files/papers/compositional_policies_and_language.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'Language + Skill Composition Clicked']);">Learning to Follow Language Instructions with Compositional Policies </a></b>
+                        <br>
+                        <i>AAAI Fall Symposium on AI for HRI, 2021</i>
+                    </div>
+                    <br>
+                    <!-- One sentence description -->
+                    <div id="indexWorkText">
+                      We propose a framework that learns to execute natural language
+                      instructions in an environment consisting of goalreaching
+                      tasks that share features of their task descriptions.
+                      Our approach leverages the compositionality of both value
+                      functions and language, with the aim of reducing the sample
+                      complexity of learning novel tasks.
+                    </div>
+                    <br>
+
+                    <!-- Collaborators -->
+                    <div id="indexWorkText">
+                       Led by <a href="https://www.vanyacohen.com/">Vanya Cohen</a>, joint with myself, <a href="https://nakulgopalan.github.io/">Nakul Gopalan</a>, <a href="https://sdjames.me/">Steven James</a>, <a href="https://core-robotics.gatech.edu/people/matthew-gombolay/">Matthew Gombolay</a>, and <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>.
+                    </div>
+                    <br>
+                    <br>
+                </td>
+            </tr>
+            <!-- __________________________________________________________________________________________________________________________ -->
+
+            <!-- Work -->
+            <tr style="border-bottom:1px solid #e5e5e5;">
+              <!-- IMAGE -->
+              <td>
+                  <img class="workPicture" src="files/images/task_algebra_2.jpg" alt="Thesis overview">
+              </td>
+
+              <!-- TITLE AND INFO -->
+              <td>
+                  <br>
+                  <div id="indexWorkText">
+                      <!-- Title + Link -->
+                      <b><a href="files/papers/Thesis_msc.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'Thesis (b) Clicked']);">A Task Algebra For Agents In Reinforcement Learning</a></b>
+                      <br>
+                      <i>M.Sc Thesis, 2020</i>
+                  </div>
+                  <br>
+                  <!-- One sentence description -->
+                  <div id="indexWorkText">
+                    We propose a framework for defining lattice algebras and Boolean
+                    algebras in particular over the space of tasks. This allows us to formulate new tasks in terms of the negation,
+                    disjunction, and conjunction of a set of base tasks. We then show that by learning a new type of goal-oriented value
+                    functions and restricting the rewards of the tasks, an agent can solve composite tasks with no further learning.
+                  </div>
+                  <br>
+
+                  <!-- Collaborators -->
+                  <div id="indexWorkText">
+                      Advised by <a href="https://sdjames.me/">Steven James</a> and <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>.
+                  </div>
+                  <br>
+                  <br>
+              </td>
+          </tr>
+          <!-- __________________________________________________________________________________________________________________________ -->
+
+            <!-- Work -->
+            <tr style="border-bottom:1px solid #e5e5e5;">
+                <!-- IMAGE -->
+                <td>
+                        <img class="workPicture" src="files/images/boolean_algebra.jpg" alt="Boolean Task Algebra">
+                </td>
+
+                <!-- TITLE AND INFO -->
+                <td>
+                    <br>
+                    <div id="indexWorkText">
+                        <!-- Title + Link -->
+                        <b><a href="https://www.raillab.org/content/boolean_algebra_neurips_2020.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'Boolean Algebra Paper Clicked']);">A Boolean Task Algebra For Reinforcement Learning</a></b>
+                        <br>
+                        <i>NeurIPS 2020</i>
+                    </div>
+                    <br>
+                    <!-- One sentence description -->
+                    <div id="indexWorkText">
+                      We propose a framework for defining a Boolean algebra over the space of tasks.
+                      This allows us to formulate new tasks in terms of the negation, disjunction and
+                      conjunction of a set of base tasks. We then show that by learning goal-oriented
+                      value functions and restricting the transition dynamics of the tasks, an agent can
+                      solve these new tasks with no further learning. We prove that by composing these
+                      value functions in specific ways, we immediately recover the optimal policies for
+                      all tasks expressible under the Boolean algebra
+                    </div>
+                    <br>
+
+                    <!-- Collaborators -->
+                    <div id="indexWorkText">
+                      Joint work with <a href="https://sdjames.me/">Steven James</a> and <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>.
+                    </div>
+                    <br>
+                    <br>
+                </td>
+            </tr>
+            <!-- __________________________________________________________________________________________________________________________ -->
+            
+            <!-- Work -->
+            <tr style="border-bottom:1px solid #e5e5e5;">
+              <!-- IMAGE -->
+              <td>
+                  <img class="workPicture" src="files/images/llml.jpg" alt="Logical composition for Lifelong RL">
+              </td>
+
+              <!-- TITLE AND INFO -->
+              <td>
+                  <br>
+                  <div id="indexWorkText">
+                      <!-- Title + Link -->
+                        <b><a href="https://www.raillab.org/content/llml_icml20.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'llml Paper Clicked']);">Logical composition for Reinforcement Learning</a></b>
+                      <br>
+                      <i>4th Lifelong Learning Workshop at ICML, July 2020</i>
+                  </div>
+                  <br>
+                  <!-- One sentence description -->
+                  <div id="indexWorkText">
+                    We propose an algorithm that determines whether a new task can be immediately solved using an agent’s existing abilities, or whether the task should be learned from scratch.
+                  </div>
+                  <br>
+
+                  <!-- Collaborators -->
+                  <div id="indexWorkText">
+                    Joint work with <a href="https://sdjames.me/">Steven James</a> and <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>.
+                  </div>
+                  <br>
+                  <br>
+              </td>
+          </tr>
+          <!-- __________________________________________________________________________________________________________________________ -->
+
+            <!-- Work -->
+            <tr style="border-bottom:1px solid #e5e5e5;">
+              <!-- IMAGE -->
+              <td>
+                  <img class="workPicture" src="files/images/hypersearch.jpg" alt="Thesis overview">
+              </td>
+
+              <!-- TITLE AND INFO -->
+              <td>
+                  <br>
+                  <div id="indexWorkText">
+                      <!-- Title + Link -->
+                      <b><a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=cnVjaXMuY28uemF8Y3N8Z3g6NGNlM2RmODY2OGZmOTlkYQ" onclick="_gaq.push(['_trackEvent', 'Click', 'Thesis (a) Clicked']);">Hypersearch: A Parallel Training Approach For Improving Neural Networks Performance</a></b>
+                      <br>
+                      <i>B.Sc.H Thesis, 2018</i>
+                      <!-- <br>
+                      <i><a href="files/papers/BAI_NIPS_Workshop.pdf" onclick="_gaq.push(['_trackEvent', 'Click', 'Thesis (a) Clicked']);">Extended abstract</a>: 
+                        Black in AI workshop at NeurIPS 2019.</i> -->
+                  </div>
+                  <br>
+                  <!-- One sentence description -->
+                  <div id="indexWorkText">
+                    This work proposes a novel embarrassingly parallel algorithm, Hypersearch, that takes advantage of both worlds:
+                    hyperparameter optimization and parallel programming. Hypersearch works by training multiple neural networks
+                    of same architecture but different hyperparameters in parallel while optimizing both networks and hyperparameters.
+                  </div>
+                  <br>
+
+                  <!-- Collaborators -->
+                  <div id="indexWorkText">
+                      Advised by <a href="https://www.ru.ac.za/computerscience/people/academicstaff/mrjamesconnan/">Mr James Connan</a>.
+                  </div>
+                  <br>
+                  <br>
+              </td>
+          </tr>
+          <!-- __________________________________________________________________________________________________________________________ -->
+
+            
+        </table>
+
+        <!-- PERSONAL -->
+        <!-- <h4>Personal</h4>
+
+        <p> For fun, I'm a big fan of basketball, snowboarding, games, and music (I play guitar/piano/violin and mostly listen to progressive metal).</p>
+
+        <p> I am an advocate of a few specific causes: sustainability, existential risk minimization, space exploration, and improving the diversity, quality, and accessibility of education.</p>
+
+        <p> Always up for a chat -- shoot me an email if you'd like to discuss anything! </p> -->
+
+        <!-- Me: Discovers a new quality anime; Me: Now this, does put a smile on my face. -->
+
+      </section>
+    </body>
+
+    <footer>
+      <p align=middle><small>Theme based on <a href="https://github.com/david-abel/minimal">David Abel's</a> version of <a href="https://github.com/orderedlist/minimal">minimal</a></small>
+        <br> <small>Copyright Geraud Nangue Tasse <script>document.write(new Date().getFullYear())</script></small>
+      </p>
+    </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-  </body>
 </html>
