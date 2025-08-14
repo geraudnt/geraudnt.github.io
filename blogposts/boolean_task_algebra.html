@@ -99,10 +99,10 @@
             for(var i=0; i<tasks.length; i++) {
                 if(i%8 == 0) { innerHTML = innerHTML.concat('<div align="center">'); }
                 name = tasks[i]
-                name = name.replaceAll(' ','-')
-                name = name.replaceAll('(','')
-                name = name.replaceAll(')','')
-                img = `<div class="fig"><img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_dts-${name}.gif" title="${tasks[i]}" alt="${tasks[i]}"> <div>${tasks[i]}</div> </div> `
+                // name = name.replaceAll(' ','-')
+                // name = name.replaceAll('(','')
+                // name = name.replaceAll(')','')
+                img = `<div class="fig"><img src="../blogposts/boolean_task_algebra/all/${name}.gif" title="${tasks[i]}" alt="${tasks[i]}"> <div>${tasks[i]}</div> </div> `
                 innerHTML = innerHTML.concat(img)
                 if((i+1)%8 == 0) { innerHTML = innerHTML.concat('</div>'); }
             }
@@ -206,7 +206,7 @@
             <h1>
                 <a href="../blogposts/boolean_task_algebra.html" title="A Boolean Task Algebra For Reinforcement Learning">A Boolean Task Algebra For Reinforcement Learning</a>
             </h1>
-            <p><a href="https://www.raillab.org/content/boolean_algebra_neurips_2020.pdf" target="_blank">Paper at NeurIPS 2020 </a></p>
+            <p><a href="../files/papers/boolean_algebra_neurips_2020.pdf" target="_blank">Paper at NeurIPS 2020 </a></p>
             <time class="published" datetime="4th Nov, 2020">4th Nov, 2020</time>
         </div>
         
@@ -216,14 +216,14 @@
       <p>In this post, we are interested in answering the following question: <em>given a set of existing skills, can we compose them to solve any task that is a logical combination of learned ones?</em>  To illustrate want we want, we will use the 2d video game domain of Van Niekerk [2019] where we train an agent to collect blue objects and separately train it to collect squares. We then see if we can obtain the skill to collect blue squares by averaging the learned value functions (since averaging is the best we can do from previous works [Haarnoja 2018, Van Niekerk 2019]). The respective value functions and trajectories are illustrated below.</p>
       <div align="center" class="inlinefig">
         <div align="center">
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-blue.png" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-square.png" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-avg.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/plots-blue.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/plots-square.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/plots-avg.png" alt="" />
         </div>
         <div align="center">
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-blue.gif" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-square.gif" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-avg.gif" alt="" />
+        <img src="../blogposts/boolean_task_algebra/blue.gif" alt="" />
+        <img src="../blogposts/boolean_task_algebra/square.gif" alt="" />
+        <img src="../blogposts/boolean_task_algebra/avg.gif" alt="" />
         </div>
       </div>
       <p style="text-align:center;">Attempting to collect blue squares by composing learned skills - collecting blue objects and collecting squares - results in an agent that gets stuck optimally.</p>
@@ -241,9 +241,9 @@
       $$</p>
       <p>is the extended reward function. This extension to the regular reward function encourages the agent to learn about various goals by giving a large penalty ($\bar r_{MIN}$) if the agent reaches goals different from the ones it wanted to reach. So as the agent acts in the environment it receives the task rewards and learns the values of each state with respect to each goal it reaches. If it reaches a goal that is different from the one it wanted to reach, it receives a large penalty so it learns in the future to avoid it if possible. The result of this is that the agent learns to achieve any goal that is achievable, and also learns the value of achieving those goals for the current task. To illustrate this, we train a UVFA [Schaul 2015] using the extended reward definition for the task of collecting blue objects. The learned extended value function (EVF) and sample trajectories are illustrated below.</p>
       <div align="center" class="inlinefig">
-      <img src="https://www.raillab.org/content/blog-2020-04-11-plots-blue.gif" alt="" />
-      <img src="https://www.raillab.org/content/blog-2020-04-11-plots-blue.png" alt="" />
-      <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-blue.gif" alt="" />
+      <img src="../blogposts/boolean_task_algebra/blue_all.gif" alt="" />
+      <img src="../blogposts/boolean_task_algebra/plots-blue.png" alt="" />
+      <img src="../blogposts/boolean_task_algebra/blue.gif" alt="" />
       </div>
       <p style="text-align:center;"> Learned EVF for collecting blue objects (left). The regular value function (middle) and policy (right) are obtained by simply maximising over goals.</p>
       <h2>Composing extended value functions</h2>
@@ -260,25 +260,25 @@
       <p>where $\bar Q^{*}_{MAX}$ and $\bar Q^{*}_{MIN}$ are respectively the EVFs for the tasks where the agent receives maximum reward and minimum reward for all goals.</p>
       <div align="center" class="inlinefig">
         <div align="center">
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-blue.gif" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-square.gif" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-and.gif" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-or.gif" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-not.gif" alt="" />
+        <img src="../blogposts/boolean_task_algebra/blue_all.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/square_all.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/and_all.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/or_all.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/not_all.png" alt="" />
         </div>
         <div align="center">
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-blue.png" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-square.png" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-and.png" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-or.png" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-plots-not.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/blue.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/square.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/and.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/or.png" alt="" />
+        <img src="../blogposts/boolean_task_algebra/not.png" alt="" />
         </div>
         <div align="center">
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-blue.gif" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-square.gif" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-and.gif" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-or.gif" alt="" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-not.gif" alt="" />
+        <img src="../blogposts/boolean_task_algebra/blue.gif" alt="" />
+        <img src="../blogposts/boolean_task_algebra/square.gif" alt="" />
+        <img src="../blogposts/boolean_task_algebra/and.gif" alt="" />
+        <img src="../blogposts/boolean_task_algebra/or.gif" alt="" />
+        <img src="../blogposts/boolean_task_algebra/not.gif" alt="" />
         </div>
       </div>
       <p style="text-align:center;"> 
@@ -293,9 +293,9 @@
       \bar Q^*_{B \text{ XOR } S}(s,g,a) = min \{ max \{ \bar Q^*_B(s,g,a), \bar Q^*_S(s,g,a) \}, ( \bar Q^{*}_{MAX}(s,g,a) + \bar Q^{*}_{MIN}(s,g,a)) \\ - min \{ \bar Q^*_B(s,g,a), \bar Q^*_S(s,g,a) \} \}
       $$</p>
       <div align="center" class="inlinefig">
-      <img src="https://www.raillab.org/content/blog-2020-04-11-plots-xor.gif" alt="" />
-      <img src="https://www.raillab.org/content/blog-2020-04-11-plots-xor.png" alt="" />
-      <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_sts-xor.gif" alt="" />
+      <img src="../blogposts/boolean_task_algebra/xor.gif" alt="" />
+      <img src="../blogposts/boolean_task_algebra/xor.png" alt="" />
+      <img src="../blogposts/boolean_task_algebra/xor.gif" alt="" />
       </div>
       <p style="text-align:center;"> Composed skill for collecting blue or square objects but not blue squares.</p>
       <h2>Boolean task algebra</h2>
@@ -361,9 +361,9 @@
       <h3>Generalising over a task space by learning base skills</h3>
       <p>By combining the notion of base tasks introduced above with the zero-shot composition of EVFs obtained earlier, we get a minimal set of skills which when learned can be used to solve any other task in an environment. To illustrate this, we first learn the EVFs for the following base tasks in the 2d video game domain: Collect purple objects ($P$), collect blue objects ($B$), and collect squares ($S$). Sample trajectories are shown below.</p>
       <div align="center" class="inlinefig">
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_dts-P.gif" alt="blog-2020-04-11-trajectories_dts-P.gif" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_dts-B.gif" alt="blog-2020-04-11-trajectories_dts-B.gif" />
-        <img src="https://www.raillab.org/content/blog-2020-04-11-trajectories_dts-S.gif" alt="blog-2020-04-11-trajectories_dts-S.gif" />
+        <img src="../blogposts/boolean_task_algebra/dts-purple.gif" alt="blog-2020-04-11-trajectories_dts-P.gif" />
+        <img src="../blogposts/boolean_task_algebra/dts-blue.gif" alt="blog-2020-04-11-trajectories_dts-B.gif" />
+        <img src="../blogposts/boolean_task_algebra/dts-square.gif" alt="blog-2020-04-11-trajectories_dts-S.gif" />
       </div>
       <p style="text-align:center;">Learned base skills for collecting purple objects, blue objects, and squares respectively.</p>
       <p>We now compose the learned base skills to solve all $2^6=64$ tasks in the domain. The respective Boolean expressions and sample trajectories are shown below.</p>
@@ -374,7 +374,7 @@
       <h2>Conclusion</h2>
       <p>We have shown how to compose tasks using the standard Boolean algebra operators. These composite tasks can be solved without further learning by first learning goal-oriented value functions, and then composing them in a similar manner. We believe this is a step towards both interpretable RL—since both the tasks and optimal value functions can be specified using Boolean operators—and the ultimate goal of lifelong learning agents, which are able to solve combinatorially many tasks in a sample-efficient manner.</p>
       <h2>Additional Resources</h2>
-      <p>For more details please refer to the <a href="https://www.raillab.org/content/boolean_algebra_neurips_2020.pdf">full paper</a> and see the video presentation below. The poster can be found <a href="https://www.raillab.org/content/NeurIPS2020_boolean_algebra_poster.pdf">here</a> and the code for all the experiments can be found on GitHub <a href="https://github.com/geraudnt/boolean_composition">here</a>.</p>
+      <p>For more details please refer to the <a href="../files/papers/boolean_algebra_neurips_2020.pdf">full paper</a> and see the video presentation below. The poster can be found <a href="../files/posters/NeurIPS2020_boolean_algebra_poster.pdf">here</a> and the code for all the experiments can be found on GitHub <a href="https://github.com/geraudnt/boolean_composition">here</a>.</p>
       <div align="center" style="text-align:center; margin-bottom:1em">
         <object align="center" width="425" height="350">
           <param name="movie" value="https://www.youtube.com/v/uBjThWZY8uc" />
