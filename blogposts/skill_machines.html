@@ -139,7 +139,7 @@
 
       <h2>Abstract</h2>
       <p>
-        We introduce <i>Skill Machines</i>&mdash;finite-state machines that encode a sequence of skill
+        We introduce <i>Skill Machines</i>;finite-state machines that encode a sequence of skill
         compositions to satisfy temporal-logic tasks with guarantees. Starting from a task specified
         in linear temporal logic (LTL), we plan over its reward machine, then act greedily with
         respect to composed value functions to obtain zero-shot policies that are near-optimal and
@@ -172,9 +172,9 @@
           <p class="callout">
             <b>Example:</b> <i>Navigate to a button then to a cylinder while never entering blue regions.</i>
             
-            LTL over high-level events $\mathcal{P}=\{button,cylinder,blue\}$ in a Safety-Gym-like world:
+            LTL over high-level events $\mathcal{P}=\{\text{button},\text{cylinder},\text{blue}\}$ in a Safety-Gym-like world: $\\$
 
-            $\mathsf{F}(\text{button})\;\land\;\mathsf{F}(\text{cylinder})\;\land\;\mathsf{G}\neg\text{blue}$.
+            $\mathsf{F}(\text{button}\;\land\;\mathsf{X}\;(\mathsf{F}\;\text{cylinder}))\;\land\;\mathsf{G}\neg\text{blue}$.
           </p>
         </div>
         <div>
@@ -214,7 +214,7 @@
         <div>
           <h3>Temporal: Constraints</h3>
           <p>
-            We augment the state of task primitives with <strong>constraints</strong> $\mathcal{C}$&mdash;
+            We augment the state of task primitives with <strong>constraints</strong> $\mathcal{C}$;
             propositions that must remain True/False over an episode. This lets us reuse the same
             spatial skills under always-avoid/always-maintain requirements.
           </p>
