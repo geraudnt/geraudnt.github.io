@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <title>Geraud Nangue Tasse</title>
+        <title>A Boolean Task Algebra For RL</title>
 
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/extra_min_styles.css">
@@ -74,6 +74,28 @@
             height: 170px;
             padding-left: 12px;
           }
+
+        .hero {
+          display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap;
+          margin-bottom: 18px;
+        }
+        .workPicture { border-radius: 10px; }
+        .callout {
+          background:#f7f7ff; border-left: 4px solid #5850ec; padding:12px 14px; border-radius:6px; margin:14px 0;
+        }
+        .tag {
+          display:inline-block; padding:2px 8px; border:1px solid #ccc; border-radius:999px; font-size:12px; margin-right:6px;
+        }
+        .grid-two {
+          display:grid; grid-template-columns: 1fr 1fr; gap: 14px;
+        }
+        @media (max-width: 900px) {
+          .grid-two { grid-template-columns: 1fr; }
+        }
+        .sm-caption { font-size: 13px; text-align:center; color:#444; }
+        .btn {
+          display:inline-block; padding:8px 12px; border-radius:8px; text-decoration:none; border:1px solid #ddd;
+        }
           
         </style>
         
@@ -92,7 +114,8 @@
         </script>
 
         <!--  Custom Javascript -->
-        <script>window.onload = function() {
+        <script>
+        window.onload = function() {
             tasks = ['(B AND NOT P AND NOT S) OR (NOT B AND NOT P AND S)', '(B AND NOT P AND NOT S) OR (NOT B AND P AND NOT S) OR (NOT B AND NOT P AND S)', '(B AND NOT P AND NOT S) OR (NOT B AND P AND NOT S)', '(B AND NOT P AND NOT S) OR (NOT B AND P AND S)', '(B AND NOT P AND NOT S) OR (NOT B AND P) OR (NOT B AND S)', '(B AND NOT P AND NOT S) OR (NOT B AND P)', '(B AND NOT P AND NOT S) OR (NOT B AND S)', '(B AND NOT P AND S) OR (NOT B AND NOT P AND NOT S)', '(B AND NOT P AND S) OR (NOT B AND NOT S)', '(B AND NOT P AND S) OR (NOT B AND P AND NOT S)', '(B AND NOT P AND S) OR (NOT B AND P AND S) OR (NOT B AND NOT P AND NOT S)', '(B AND NOT P AND S) OR (NOT B AND P AND S)', '(B AND NOT P AND S) OR (NOT B AND P) OR (NOT B AND NOT S)', '(B AND NOT P AND S) OR (NOT B AND P)', '(B AND NOT P) OR (NOT B AND NOT S) OR (NOT P AND NOT S)', '(B AND NOT P) OR (NOT B AND P AND NOT S) OR (NOT P AND S)', '(B AND NOT P) OR (NOT B AND P AND NOT S)', '(B AND NOT P) OR (NOT B AND P AND S) OR (NOT P AND NOT S)', '(B AND NOT P) OR (NOT B AND P AND S)', '(B AND NOT P) OR (NOT B AND P) OR (NOT P AND NOT S)', '(B AND NOT P) OR (NOT B AND P) OR (NOT P AND S)', '(B AND NOT P) OR (NOT B AND P)', '(B AND NOT P) OR (NOT B AND S) OR (NOT P AND S)', '(B AND NOT P) OR (NOT P AND NOT S)', '(B AND NOT P) OR (NOT P AND S)', '(NOT B AND NOT P) OR (NOT B AND NOT S) OR (NOT P AND NOT S)', '(NOT B AND NOT P) OR (NOT B AND NOT S) OR (NOT P AND S)', '(NOT B AND NOT P) OR (NOT B AND NOT S)', '(NOT B AND NOT P) OR (NOT B AND S) OR (NOT P AND NOT S)', '(NOT B AND NOT P) OR (NOT B AND S) OR (NOT P AND S)', '(NOT B AND NOT P) OR (NOT B AND S)', '(NOT B AND NOT P) OR (NOT P AND NOT S)', '(NOT B AND NOT P) OR (NOT P AND S)', '(NOT B AND NOT S) OR (NOT P AND NOT S)', '(NOT B AND P AND NOT S) OR (NOT B AND NOT P AND S)', '(NOT B AND P AND NOT S) OR (NOT P AND S)', '(NOT B AND P AND S) OR (NOT B AND NOT P AND NOT S)', '(NOT B AND P AND S) OR (NOT P AND NOT S)', '(NOT B AND P) OR (NOT B AND NOT S)', '(NOT B AND P) OR (NOT B AND S)', '(NOT B AND P) OR (NOT P AND NOT S)', '(NOT B AND P) OR (NOT P AND S)', '(NOT B AND S) OR (NOT P AND S)', 'B AND NOT P AND NOT S', 'B AND NOT P AND S', 'B AND NOT P', 'B AND P', 'NOT B AND NOT P AND NOT S', 'NOT B AND NOT P AND S', 'NOT B AND NOT P', 'NOT B AND NOT S', 'NOT B AND P AND NOT S', 'NOT B AND P AND S', 'NOT B AND P', 'NOT B AND S', 'NOT B OR (NOT P AND NOT S)', 'NOT B OR (NOT P AND S)', 'NOT B OR NOT P', 'NOT B', 'NOT P AND NOT S', 'NOT P AND S', 'NOT P OR (NOT B AND NOT S)', 'NOT P OR (NOT B AND S)', 'NOT P']
         
             innerHTML = '<div align="center">'
@@ -207,6 +230,17 @@
                 <a href="../blogposts/boolean_task_algebra.html" title="A Boolean Task Algebra For Reinforcement Learning">A Boolean Task Algebra For Reinforcement Learning</a>
             </h1>
             <p><a href="../files/papers/boolean_algebra_neurips_2020.pdf" target="_blank">Paper at NeurIPS 2020 </a></p>
+            <td>
+              <div class="hero">
+                <img class="workPicture" src="../files/images/boolean_algebra_neurips_2020.jpg" alt="" width="100%">
+                <span class="tag">RL</span>
+                <span class="tag">Multi Task</span>
+                <span class="tag">Transfer Learning</span>
+                <span class="tag">Logic</span>
+                <span class="tag">Composition</span>
+                <span class="tag">Zero-shot</span>
+              </div>
+            </td>
             <time class="published" datetime="4th Nov, 2020">4th Nov, 2020</time>
         </div>
         
@@ -293,7 +327,7 @@
       \bar Q^*_{B \text{ XOR } S}(s,g,a) = min \{ max \{ \bar Q^*_B(s,g,a), \bar Q^*_S(s,g,a) \}, ( \bar Q^{*}_{MAX}(s,g,a) + \bar Q^{*}_{MIN}(s,g,a)) \\ - min \{ \bar Q^*_B(s,g,a), \bar Q^*_S(s,g,a) \} \}
       $$</p>
       <div align="center" class="inlinefig">
-      <img src="../blogposts/boolean_task_algebra/xor.gif" alt="" />
+      <img src="../blogposts/boolean_task_algebra/xor_all.png" alt="" />
       <img src="../blogposts/boolean_task_algebra/xor.png" alt="" />
       <img src="../blogposts/boolean_task_algebra/xor.gif" alt="" />
       </div>

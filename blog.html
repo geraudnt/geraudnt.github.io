@@ -17,18 +17,61 @@
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script>
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-208548137-1']);
-          _gaq.push(['_trackPageview']);
-          
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-        </script>
+    <!-- Custom CSS -->
+    <style>
+      @media only screen and (max-width: 600px) {
+        .katex-display > .katex {
+          max-width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+        }
+      }
+      tr { color: #000; border: 0px !important; }
+      td { background-color: #ffffff; }
+      .toprule { border-top: 4px solid #000 !important; }
+      .midrule { border-top: 2px solid #000 !important; }
+      .bottomrule { border-bottom: 4px solid #000 !important; }
+      td:first-child { text-align: left; }
+
+      .hero {
+        display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap;
+        margin-bottom: 18px;
+      }
+      .workPicture { border-radius: 10px; }
+      .inlinefig { overflow-x:auto; }
+      .inlinefig div { display:inline-flex; }
+      .inlinefig img { width: 170px; height: 170px; padding-left: 12px; border-radius: 6px; }
+      .callout {
+        background:#f7f7ff; border-left: 4px solid #5850ec; padding:12px 14px; border-radius:6px; margin:14px 0;
+      }
+      .tag {
+        display:inline-block; padding:2px 8px; border:1px solid #ccc; border-radius:999px; font-size:12px; margin-right:6px;
+      }
+      .grid-two {
+        display:grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      }
+      @media (max-width: 900px) {
+        .grid-two { grid-template-columns: 1fr; }
+      }
+      .sm-caption { font-size: 13px; text-align:center; color:#444; }
+      .btn {
+        display:inline-block; padding:8px 12px; border-radius:8px; text-decoration:none; border:1px solid #ddd;
+      }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-208548137-1']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
     </head>
 
     <!-- ALL CONTENT -->
@@ -89,13 +132,42 @@
     <section>
         <!-- POSTS -->
         <h1>Posts</h1>
+
+        <div class="title">
+            <h2>
+                <a href="blogposts/skill_machines.html" title="Skill Machines: Temporal Logic Skill Composition in RL">Skill Machines: Temporal Logic Skill Composition in RL</a>
+            </h2>
+            <p><a href="files/papers/skill_machines_iclr_2024.pdf" target="_blank">Paper at ICLR 2024 </a></p>
+              <td>
+                <div class="hero">
+                  <img class="workPicture" src="files/images/framework.gif" alt="Skill Machines overview (teaser)" width="100%">
+                  <span class="tag">RL</span>
+                  <span class="tag">Multi Task</span>
+                  <span class="tag">Transfer Learning</span>
+                  <span class="tag">Temporal Logic</span>
+                  <span class="tag">Composition</span>
+                  <span class="tag">Zero-shot</span>
+                  <span class="tag">Few-shot</span>
+                </div>
+              </td>
+            <time class="published" datetime="4th Nov, 2020">24th Aug, 2025</time>
+        </div>
+
         <div class="title">
             <h2>
                 <a href="blogposts/boolean_task_algebra.html" title="A Boolean Task Algebra For Reinforcement Learning">A Boolean Task Algebra For Reinforcement Learning</a>
             </h2>
-            <p><a href="../files/papers/boolean_algebra_neurips_2020.pdf" target="_blank">Paper at NeurIPS 2020 </a></p>
+            <p><a href="files/papers/boolean_algebra_neurips_2020.pdf" target="_blank">Paper at NeurIPS 2020 </a></p>
               <td>
-            <img class="workPicture" src="files/images/boolean_algebra_neurips_2020.jpg" alt="">
+                <div class="hero">
+                  <img class="workPicture" src="files/images/boolean_algebra_neurips_2020.jpg" alt="" width="100%">
+                  <span class="tag">RL</span>
+                  <span class="tag">Multi Task</span>
+                  <span class="tag">Transfer Learning</span>
+                  <span class="tag">Logic</span>
+                  <span class="tag">Composition</span>
+                  <span class="tag">Zero-shot</span>
+                </div>
               </td>
             <time class="published" datetime="4th Nov, 2020">4th Nov, 2020</time>
         </div>

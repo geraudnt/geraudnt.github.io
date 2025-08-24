@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Skill Machines: Temporal Logic Skill Composition in RL</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/extra_min_styles.css">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+      @media only screen and (max-width: 600px) {
+        .katex-display > .katex {
+          max-width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+        }
+      }
+      tr { color: #000; border: 0px !important; }
+      td { background-color: #ffffff; }
+      .toprule { border-top: 4px solid #000 !important; }
+      .midrule { border-top: 2px solid #000 !important; }
+      .bottomrule { border-bottom: 4px solid #000 !important; }
+      td:first-child { text-align: left; }
+
+      .hero {
+        display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap;
+        margin-bottom: 18px;
+      }
+      .workPicture { border-radius: 10px; }
+      .inlinefig { overflow-x:auto; }
+      .inlinefig div { display:inline-flex; }
+      .inlinefig img { width: 170px; height: 170px; padding-left: 12px; border-radius: 6px; }
+      .callout {
+        background:#f7f7ff; border-left: 4px solid #5850ec; padding:12px 14px; border-radius:6px; margin:14px 0;
+      }
+      .tag {
+        display:inline-block; padding:2px 8px; border:1px solid #ccc; border-radius:999px; font-size:12px; margin-right:6px;
+      }
+      .grid-two {
+        display:grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      }
+      @media (max-width: 900px) {
+        .grid-two { grid-template-columns: 1fr; }
+      }
+      .sm-caption { font-size: 13px; text-align:center; color:#444; }
+      .btn {
+        display:inline-block; padding:8px 12px; border-radius:8px; text-decoration:none; border:1px solid #ddd;
+      }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-208548137-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+      onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+  </head>
+
+  <div class="wrapper">
+  <body>
+
+    <!-- HEADER -->
+    <header>
+      <h1 align="middle">Geraud  <br> Nangue Tasse</h1>
+
+      <div align="middle" style="margin-bottom: 10px">
+        <img src="../files/images/geraud.png" alt="Portrait" WIDTH=180 style="margin-bottom: 8px;border-radius: 10px;">
+        <div style="margin-bottom: 6px;"><img src="../files/images/email.jpg" WIDTH=175></div>
+
+        <a href="../files/geraud_cv.pdf" style="margin-right:14px;"><i class="ai ai-cv" style="font-size: 32px;"></i></a>
+        <a href="https://github.com/geraudnt" style="margin-right:14px;"><i class="fa fa-github" style="font-size:32px;"></i></a>
+        <a href="https://scholar.google.com/citations?user=CAfsMIsAAAAJ&hl=en" style="margin-right:14px;"><i class="ai ai-google-scholar big-icon" style="font-size:32px;"></i></a>
+        <a href="https://twitter.com/geraudnt"><i class="fa fa-twitter" style="font-size:32px;"></i></a>
+        <br><br>
+      </div>
+
+      <ul class='navbar'>
+        <li class='navbar_li'><a href='../index.html'>Home</a></li>
+        <li class='navbar_li'><a href='../papers.html'>Publications</a></li>
+        <li class='navbar_li' id="selected"><a href='../blog.html'>Blog</a></li>
+      </ul>
+    </header>
+
+    <!-- BODY -->
+    <section>
+      <div class="title">
+        <h1>
+          <a href="../files/papers/skill_machines_iclr_2024.pdf" title="Skill Machines: Temporal Logic Skill Composition in Reinforcement Learning">
+            Skill Machines: Temporal Logic Skill Composition in RL
+          </a>
+        </h1>
+        <p><a href="https://iclr.cc/virtual/2024/poster/17719" target="_blank">ICLR 2024 Poster #17719</a></p>
+        <div class="hero">
+          <img class="workPicture" src="../files/images/framework.gif" alt="Skill Machines overview (teaser)" width="320">
+          <span class="tag">RL</span>
+          <span class="tag">Multi Task</span>
+          <span class="tag">Transfer Learning</span>
+          <span class="tag">Temporal Logic</span>
+          <span class="tag">Composition</span>
+          <span class="tag">Zero-shot</span>
+          <span class="tag">Few-shot</span>
+        </div>
+        <time class="published" datetime="24 Aug, 2025">24 Aug, 2025</time>
+      </div>
+
+      <div class="video">
+        <iframe
+          src="https://www.youtube.com/embed/Q3GArdgAABM"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </div>
+      
+      <style>
+        .video { max-width: 800px; margin: 1em auto; }
+        .video iframe { width: 100%; height: auto; aspect-ratio: 16 / 9; display: block; }
+      </style>
+
+      <h2>Abstract</h2>
+      <p>
+        We introduce <em>Skill Machines</em>&mdash;finite-state machines that encode a sequence of skill
+        compositions to satisfy temporal-logic tasks with guarantees. Starting from a task specified
+        in linear temporal logic (LTL), we plan over its reward machine, then act greedily with
+        respect to composed value functions to obtain zero-shot policies that are near-optimal and
+        <em>satisficing</em>. We further show how these policies seed few-shot optimal learning using any
+        off-policy RL algorithm.
+      </p>
+
+      <h2>Motivation: Multipurpose Robots Need Compositionality</h2>
+      <p>
+        Imagine a service robot in an office world: <em>&ldquo;Deliver mail until none is left, then deliver
+        coffee while people are present, then patrol rooms A-B-C-D-A, and never break a
+        decoration.&rdquo;</em> We want tasks to be human-understandable and solvable <em>without relearning</em>
+        each time a new specification is presented.
+      </p>
+
+      <div class="callout">
+        <strong>Challenges.</strong> (i) Reward design requires expertise; (ii) RL is sample-inefficient;
+        (iii) When tasks are given in temporal logic, naive chaining of skills fails due to
+        <em>spatial</em> and <em>temporal</em> curses of dimensionality.
+      </div>
+
+      <h2>Tasking with Temporal Logic</h2>
+      <div class="grid-two">
+        <div>
+          <p>
+            We use a formal language such as LTL with familiar operators:
+            $\neg$ (NOT), $\land$ (AND), $\mathsf{X}$ (Next), $\mathsf{F}$ (Eventually),
+            $\mathsf{G}$ (Always), etc.
+          </p>
+          <p class="callout">
+            Example: <em>&ldquo;Navigate to a button then to a cylinder while never entering blue regions.&rdquo;</em>
+            
+            LTL over high-level events in a Safety-Gym-like world:
+
+            $\mathsf{F}(\text{button})\;\land\;\mathsf{F}(\text{cylinder})\;\land\;\mathsf{G}\neg\text{blue}$.
+          </p>
+        </div>
+        <div>
+          <img src="../blogposts/skill_machines/safety_gym_example.png" alt="Safety-Gym style environment with button, cylinder, and blue region" style="width:auto; height: 250px;" />
+        </div>
+      </div>
+
+      <h3>From LTL to Reward Machines</h3>
+      <p>
+        LTL specifications can be compiled into <em>reward machines</em> (finite-state automata whose transitions
+        carry rewards). Planning (e.g., value iteration) over the reward machine reveals which
+        skill to execute at each automaton node.
+      </p>
+
+      <h2>The Roadblock: Two Curses of Dimensionality</h2>
+      <p>
+        If an agent only learns atomic skills (e.g., &ldquo;go to button&rdquo;, &ldquo;go to cylinder&rdquo;), it
+        cannot immediately solve tasks such as &ldquo;go to button <em>while avoiding blue</em>&rdquo;.
+        In general, there are super-exponentially many Boolean expressions the agent may need to
+        <em>eventually</em> satisfy (spatial curse) and super-exponentially many expressions it may need
+        to keep <em>always</em> true (temporal curse).
+      </p>
+      
+      <h2>Our Solution: Primitives for Spatial and Temporal Structure</h2>
+      <div class="grid-two">
+        <div>
+          <h3>Spatial: Task &amp; Skill Primitives</h3>
+          <ul>
+            <li><strong>Task primitives</strong> $\mathcal{M}$: composable MDPs for eventually satisfying each proposition.</li>
+            <li><strong>Skill primitives</strong> $\mathcal{Q}$: World Value Functions (WVFs) for each task primitive.</li>
+          </ul>
+          <p>
+            Unlike regular value functions, WVFs are composable: we can compute the value of any
+            Boolean expression over task primitives <em>without further learning</em>.
+          </p>
+        </div>
+        <div>
+          <h3>Temporal: Constraints</h3>
+          <p>
+            We augment the state of task primitives with <strong>constraints</strong> $\mathcal{C}$&mdash;
+            propositions that must remain True/False over an episode. This lets us reuse the same
+            spatial skills under &ldquo;always-avoid&rdquo;/&ldquo;always-maintain&rdquo; requirements.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <img src="../blogposts/skill_machines/constraints.png" alt="Safety-Gym style environment with button, cylinder, and blue region" style="width:100%; height: auto;" />
+      </div>
+      <p></p>
+
+      <h2>Skill Machines</h2>
+      <p>
+        A <em>Skill Machine (SM)</em> is a finite-state controller that encodes the sequence of
+        <em>composed</em> skill primitives to satisfy a temporal logic task.We obtain SMs by:
+      </p>
+      <ol>
+        <li>Planning over the reward machine (e.g., value iteration) to compute transition values.</li>
+        <li>Greedily selecting the Boolean subgoals to pursue at each node.</li>
+      </ol>
+      <p class="callout">
+        The resulting policy executes skills greedily with respect to the <em>composed</em> WVFs at each node.
+        This yields <strong>zero-shot</strong> satisfaction with near-optimal performance under mild reachability
+        assumptions.
+      </p>
+
+      <div>
+        <img src="../blogposts/skill_machines/zero-shot-example.png" alt="Zero-Shot Temporal Skill" style="width:100%; height: auto;" />
+      </div>
+      <p></p>
+
+      <h2>Zero‑shot Transfer</h2>
+      <p>
+        Once the SM is built, the agent can immediately solve new tasks such as:
+        <em>&ldquo;Go to a hazard, then to a cylinder, then again to a cylinder, while avoiding hazards.&rdquo;</em>
+        No additional learning is required.
+      </p>
+
+      <div>
+        <img src="../blogposts/skill_machines/skill-machine.png" alt="Skill Machine" style="width:100%; height: auto;" />
+      </div>
+      <p></p>
+      
+      <!-- <table>
+        <tr>
+          <td> <div style="position: absolute; top: 50%; right: 50%;">Safety-Task-1-v0 <br> (F (buttons & X (F goal))) <br> Navigate to a button and then to a cylinder.</div> <img src="https://github.com/geraudnt/skill_machines/blob/main/images/zeroshot_Safety-Task-1-v0_.gif" alt="" width = 400px height = auto></td>
+          <td> <div style="position: absolute; top: 50%; right: 50%;">Safety-Task-2-v0 <br> (F (buttons & X (F goal))) & (G~hazards) <br> Navigate to a button and then to a cylinder while never entering blue regions</div> <img src="https://github.com/geraudnt/skill_machines/blob/main/images/zeroshot_Safety-Task-2-v0_.gif" alt="" width = 400px height = auto></td>
+        </tr>   
+      </table> -->
+
+      <h2>Few‑shot Optimality via Off‑policy RL</h2>
+      <p>
+        Zero-shot policies from SMs provide strong initial performance. To reach task-specific
+        optimality when assumptions are violated, we continue learning <em>few-shot</em> with any
+        off-policy method (e.g., Q-learning), using the SM as guidance.
+      </p>
+      
+      <div>
+        <img src="../blogposts/skill_machines/office-coffee.png" alt="" style="width:100%; height: auto;" />
+        <p class="sm-caption">In office world tasks (e.g., &ldquo;deliver coffee and never break a decoration&rdquo;),
+          QL-SM improves upon the zero-shot SM and reaches optimal performance; SM and QL-SM
+          outperform representative baselines.</p>
+      </div>
+      <p></p>
+
+      <div class="callout">
+        <strong>Why HRMs can struggle, and SMs shine.</strong>
+        When success is extremely unlikely, purely model-free methods (e.g., CRM, Q-learning)
+        rarely finish episodes. Skill Machines leverage temporal composition and WVFs to act
+        effectively from the start.
+      </div>
+
+      <h2>Takeaways</h2>
+      <ul>
+        <li>Zero-shot, near-optimal temporal &amp; concurrent composition via WVF-based <em>Skill Machines</em>.</li>
+        <li>Derived directly by planning over reward machines; satisfaction guarantees.</li>
+        <li>Few-shot fine-tuning yields task-optimal policies with standard off-policy RL.</li>
+      </ul>
+      
+      <img src="../blogposts/skill_machines/zeroshot_Office-Long-Task-v0.gif" alt="" style="width:100%; height: auto;" />
+
+      <h2>References</h2>
+      <ol>
+        <li>Camacho, A. et&nbsp;al. <em>LTL and Beyond: Formal Languages for Reward Function Specification in RL</em> (IJCAI, 2019).</li>
+        <li>Icarte, R. T. et&nbsp;al. <em>Reward Machines for High-level Task Specification and Decomposition</em> (ICML, 2018).</li>
+        <li>Nangue Tasse, G. et&nbsp;al. <em>World Value Functions</em> (RLDM, 2022).</li>
+        <li>Nangue Tasse, G. et&nbsp;al. <em>A Boolean Task Algebra for RL</em> (NeurIPS, 2020).</li>
+        <li>Liu, J. X. et&nbsp;al. <em>Skill Transfer for Temporally-Extended Task Specifications</em> (arXiv, 2022).</li>
+      </ol>
+
+      <div style="margin: 20px 0;">
+        <a class="btn" href="../files/posters/ICLR_2024_Skill_Machines_Poster-1.png" target="_blank">Download the ICLR 2024 Poster (PNG)</a>
+      </div>
+    </section>
+
+    <footer>
+      <p align=middle>
+        <small>Theme based on <a href="https://github.com/david-abel/minimal">David Abel's</a> version of <a href="https://github.com/orderedlist/minimal">minimal</a></small>
+        <br>
+        <small>Copyright Geraud Nangue Tasse <script>document.write(new Date().getFullYear())</script></small>
+      </p>
+    </footer>
+
+  </body>
+  </div>
+</html>
