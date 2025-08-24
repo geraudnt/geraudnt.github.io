@@ -139,26 +139,26 @@
 
       <h2>Abstract</h2>
       <p>
-        We introduce <em>Skill Machines</em>&mdash;finite-state machines that encode a sequence of skill
+        We introduce <i>Skill Machines</i>&mdash;finite-state machines that encode a sequence of skill
         compositions to satisfy temporal-logic tasks with guarantees. Starting from a task specified
         in linear temporal logic (LTL), we plan over its reward machine, then act greedily with
         respect to composed value functions to obtain zero-shot policies that are near-optimal and
-        <em>satisficing</em>. We further show how these policies seed few-shot optimal learning using any
+        <i>satisficing</i>. We further show how these policies seed few-shot optimal learning using any
         off-policy RL algorithm.
       </p>
 
       <h2>Motivation: Multipurpose Robots Need Compositionality</h2>
       <p>
-        Imagine a service robot in an office world: <em>&ldquo;Deliver mail until none is left, then deliver
+        Imagine a service robot in an office world: <i>Deliver mail until none is left, then deliver
         coffee while people are present, then patrol rooms A-B-C-D-A, and never break a
-        decoration.&rdquo;</em> We want tasks to be human-understandable and solvable <em>without relearning</em>
+        decoration.</i> We want tasks to be human-understandable and solvable <i>without relearning</i>
         each time a new specification is presented.
       </p>
 
       <div class="callout">
         <strong>Challenges.</strong> (i) Reward design requires expertise; (ii) RL is sample-inefficient;
         (iii) When tasks are given in temporal logic, naive chaining of skills fails due to
-        <em>spatial</em> and <em>temporal</em> curses of dimensionality.
+        <i>spatial</i> and <i>temporal</i> curses of dimensionality.
       </div>
 
       <h2>Tasking with Temporal Logic</h2>
@@ -170,9 +170,9 @@
             $\mathsf{G}$ (Always), etc.
           </p>
           <p class="callout">
-            Example: <em>&ldquo;Navigate to a button then to a cylinder while never entering blue regions.&rdquo;</em>
+            <b>Example:</b> <i>Navigate to a button then to a cylinder while never entering blue regions.</i>
             
-            LTL over high-level events in a Safety-Gym-like world:
+            LTL over high-level events $\mathcal{P}=\{button,cylinder,blue\}$ in a Safety-Gym-like world:
 
             $\mathsf{F}(\text{button})\;\land\;\mathsf{F}(\text{cylinder})\;\land\;\mathsf{G}\neg\text{blue}$.
           </p>
@@ -184,18 +184,18 @@
 
       <h3>From LTL to Reward Machines</h3>
       <p>
-        LTL specifications can be compiled into <em>reward machines</em> (finite-state automata whose transitions
+        LTL specifications can be compiled into <i>reward machines</i> (finite-state automata whose transitions
         carry rewards). Planning (e.g., value iteration) over the reward machine reveals which
         skill to execute at each automaton node.
       </p>
 
       <h2>The Roadblock: Two Curses of Dimensionality</h2>
       <p>
-        If an agent only learns atomic skills (e.g., &ldquo;go to button&rdquo;, &ldquo;go to cylinder&rdquo;), it
-        cannot immediately solve tasks such as &ldquo;go to button <em>while avoiding blue</em>&rdquo;.
+        If an agent only learns atomic skills (e.g., go to button, go to cylinder), it
+        cannot immediately solve tasks such as go to button <i>while avoiding blue</i>.
         In general, there are super-exponentially many Boolean expressions the agent may need to
-        <em>eventually</em> satisfy (spatial curse) and super-exponentially many expressions it may need
-        to keep <em>always</em> true (temporal curse).
+        <i>eventually</i> satisfy (spatial curse) and super-exponentially many expressions it may need
+        to keep <i>always</i> true (temporal curse).
       </p>
       
       <h2>Our Solution: Primitives for Spatial and Temporal Structure</h2>
@@ -208,7 +208,7 @@
           </ul>
           <p>
             Unlike regular value functions, WVFs are composable: we can compute the value of any
-            Boolean expression over task primitives <em>without further learning</em>.
+            Boolean expression over task primitives <i>without further learning</i>.
           </p>
         </div>
         <div>
@@ -216,7 +216,7 @@
           <p>
             We augment the state of task primitives with <strong>constraints</strong> $\mathcal{C}$&mdash;
             propositions that must remain True/False over an episode. This lets us reuse the same
-            spatial skills under &ldquo;always-avoid&rdquo;/&ldquo;always-maintain&rdquo; requirements.
+            spatial skills under always-avoid/always-maintain requirements.
           </p>
         </div>
       </div>
@@ -228,15 +228,15 @@
 
       <h2>Skill Machines</h2>
       <p>
-        A <em>Skill Machine (SM)</em> is a finite-state controller that encodes the sequence of
-        <em>composed</em> skill primitives to satisfy a temporal logic task.We obtain SMs by:
+        A <i>Skill Machine (SM)</i> is a finite-state controller that encodes the sequence of
+        <i>composed</i> skill primitives to satisfy a temporal logic task.We obtain SMs by:
       </p>
       <ol>
         <li>Planning over the reward machine (e.g., value iteration) to compute transition values.</li>
         <li>Greedily selecting the Boolean subgoals to pursue at each node.</li>
       </ol>
       <p class="callout">
-        The resulting policy executes skills greedily with respect to the <em>composed</em> WVFs at each node.
+        The resulting policy executes skills greedily with respect to the <i>composed</i> WVFs at each node.
         This yields <strong>zero-shot</strong> satisfaction with near-optimal performance under mild reachability
         assumptions.
       </p>
@@ -249,7 +249,7 @@
       <h2>Zero‑shot Transfer</h2>
       <p>
         Once the SM is built, the agent can immediately solve new tasks such as:
-        <em>&ldquo;Go to a hazard, then to a cylinder, then again to a cylinder, while avoiding hazards.&rdquo;</em>
+        <i>Go to a hazard, then to a cylinder, then again to a cylinder, while avoiding hazards.</i>
         No additional learning is required.
       </p>
 
@@ -268,13 +268,13 @@
       <h2>Few‑shot Optimality via Off‑policy RL</h2>
       <p>
         Zero-shot policies from SMs provide strong initial performance. To reach task-specific
-        optimality when assumptions are violated, we continue learning <em>few-shot</em> with any
+        optimality when assumptions are violated, we continue learning <i>few-shot</i> with any
         off-policy method (e.g., Q-learning), using the SM as guidance.
       </p>
       
       <div>
         <img src="../blogposts/skill_machines/office-coffee.png" alt="" style="width:100%; height: auto;" />
-        <p class="sm-caption">In office world tasks (e.g., &ldquo;deliver coffee and never break a decoration&rdquo;),
+        <p class="sm-caption">In office world tasks (e.g., deliver coffee and never break a decoration),
           QL-SM improves upon the zero-shot SM and reaches optimal performance; SM and QL-SM
           outperform representative baselines.</p>
       </div>
@@ -289,20 +289,21 @@
 
       <h2>Takeaways</h2>
       <ul>
-        <li>Zero-shot, near-optimal temporal &amp; concurrent composition via WVF-based <em>Skill Machines</em>.</li>
+        <li>Zero-shot, near-optimal temporal &amp; concurrent composition via WVF-based <i>Skill Machines</i>.</li>
         <li>Derived directly by planning over reward machines; satisfaction guarantees.</li>
         <li>Few-shot fine-tuning yields task-optimal policies with standard off-policy RL.</li>
+        <img src="../blogposts/skill_machines/task-4.png" alt="" style="width:100%; height: auto;" />
+        <img src="../blogposts/skill_machines/zeroshot_Office-Long-Task-v0.gif" alt="" style="width:100%; height: auto;" />
       </ul>
       
-      <img src="../blogposts/skill_machines/zeroshot_Office-Long-Task-v0.gif" alt="" style="width:100%; height: auto;" />
 
       <h2>References</h2>
       <ol>
-        <li>Camacho, A. et&nbsp;al. <em>LTL and Beyond: Formal Languages for Reward Function Specification in RL</em> (IJCAI, 2019).</li>
-        <li>Icarte, R. T. et&nbsp;al. <em>Reward Machines for High-level Task Specification and Decomposition</em> (ICML, 2018).</li>
-        <li>Nangue Tasse, G. et&nbsp;al. <em>World Value Functions</em> (RLDM, 2022).</li>
-        <li>Nangue Tasse, G. et&nbsp;al. <em>A Boolean Task Algebra for RL</em> (NeurIPS, 2020).</li>
-        <li>Liu, J. X. et&nbsp;al. <em>Skill Transfer for Temporally-Extended Task Specifications</em> (arXiv, 2022).</li>
+        <li>Camacho, A. et&nbsp;al. <i>LTL and Beyond: Formal Languages for Reward Function Specification in RL</i> (IJCAI, 2019).</li>
+        <li>Icarte, R. T. et&nbsp;al. <i>Reward Machines for High-level Task Specification and Decomposition</i> (ICML, 2018).</li>
+        <li>Nangue Tasse, G. et&nbsp;al. <i>World Value Functions</i> (RLDM, 2022).</li>
+        <li>Nangue Tasse, G. et&nbsp;al. <i>A Boolean Task Algebra for RL</i> (NeurIPS, 2020).</li>
+        <li>Liu, J. X. et&nbsp;al. <i>Skill Transfer for Temporally-Extended Task Specifications</i> (arXiv, 2022).</li>
       </ol>
 
       <div style="margin: 20px 0;">
