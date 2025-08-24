@@ -28,7 +28,101 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
+
+          // Copy-to-clipboard for this block (supports multiple if present)
+          document.addEventListener('click', async (e) => {
+            const btn = e.target.closest('.copy-btn');
+            if (!btn) return;
+
+            const wrapper = btn.closest('.cite-prewrap');
+            const pre = wrapper?.querySelector('.cite-pre');
+            if (!pre) return;
+
+            const text = pre.innerText;
+
+            const setLabel = (msg) => {
+              const old = btn.textContent;
+              btn.textContent = msg;
+              setTimeout(() => (btn.textContent = old), 1200);
+            };
+
+            try {
+              if (navigator.clipboard?.writeText) {
+                await navigator.clipboard.writeText(text);
+              } else {
+                // Fallback for older browsers
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+              }
+              setLabel('Copied!');
+            } catch (err) {
+              console.error(err);
+              setLabel('Failed');
+            }
+          });
         </script>
+
+        <style>
+          /* CSS */
+        .cite-row {
+          display: flex;
+          align-items: stretch; /* makes items share the tallest height */
+          /* gap: 12px; */
+        }
+
+        .cite-img-link {
+          display: block;
+          height: 200px;
+          object-fit: cover; 
+        }
+
+        .cite-img {
+          display: block;
+          height: 100%;      /* match the <pre> height */
+          object-fit: cover; /* crop if too tall/narrow */
+          /* border-radius: 6px; */
+        }
+
+        .cite-prewrap {
+          position: relative;
+          flex: 1;
+          min-width: 0; /* allow shrinking */
+        }
+
+        .cite-pre {
+          margin: 0;
+          padding: 12px 14px 12px 12px;
+          /* background: #0f172a;
+          color: #e5e7eb;         */
+          /* border-radius: 6px; */
+          overflow: auto;
+          line-height: 1.4;
+          font-size: 14px;
+          height: 180px;
+        }
+
+        /* Copy button */
+        .copy-btn {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          padding: 6px 10px;
+          font-size: 12px;
+          /* border: 1px solid #334155;
+          border-radius: 6px;
+          background: #111827;
+          color: #e5e7eb; */
+          cursor: pointer;
+        }
+        .copy-btn:hover { background: #ffffff; }
+        .copy-btn:active { transform: translateY(1px); }
+        </style>
     </head>
 
     <!-- ALL CONTENT -->
@@ -94,29 +188,47 @@
         <div class='paper_line'><a href="files/papers/Thesis_PhD.pdf">Towards Lifelong Reinforcement Learning Through Temporal Logics and Zero-Shot Composition</a></div>
         <div class='paper_line'><b>Geraud Nangue Tasse</b>. Advised by Steven James and Prof Benjamin Rosman.</div>
         <div class='paper_line'><i>Ph.D. Thesis (Computer Science), University of the Witwatersrand, 2024</i>.</div>
-          <pre>
+        <div class="cite-row">
+          <!-- <a class="cite-img-link" href="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" target="_blank" rel="noopener">
+            <img class="cite-img" src="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" alt="Paper Thumbnail"/>
+          </a> -->
+        
+          <div class="cite-prewrap">
+            <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+            <pre class="cite-pre">
 @phdthesis{tasse2024phd,
   title={Towards Lifelong Reinforcement Learning Through Temporal Logics and Zero-Shot Composition},
   author={Nangue Tasse, Geraud},
   type = {Doctoral Dissertation},
   school={University of the Witwatersrand, Johannesburg (South Africa)
   year={2024}
-}
-          </pre>
+}              
+            </pre>
+          </div>
+        </div>
         <p></p>
 
         <div class='paper_line'><a href="files/papers/Thesis_MSc.pdf">A Task Algebra For Agents In Reinforcement Learning</a></div>
         <div class='paper_line'><b>Geraud Nangue Tasse</b>. Advised by Steven James and Prof Benjamin Rosman.</div>
         <div class='paper_line'><i>M.Sc Thesis (Computer Science), University of the Witwatersrand, 2020</i>.</div>
-          <pre>
+        <div class="cite-row">
+          <!-- <a class="cite-img-link" href="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" target="_blank" rel="noopener">
+            <img class="cite-img" src="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" alt="Paper Thumbnail"/>
+          </a> -->
+        
+          <div class="cite-prewrap">
+            <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+            <pre class="cite-pre">
 @mastersthesis{tasse2020msc,
   title={A task algebra for agents in reinforcement learning},
   author={Nangue Tasse, Geraud},
   type = {Masters Dissertation},
   year={2020},
   school={University of the Witwatersrand, Johannesburg (South Africa)}
-}
-          </pre>
+}              
+            </pre>
+          </div>
+        </div>
         <p></p>
 <!-- 
         <div class='paper_line'><a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=cnVjaXMuY28uemF8Y3N8Z3g6NGNlM2RmODY2OGZmOTlkYQ">Hypersearch: A Parallel Training Approach For Improving Neural Networks Performance</a></div>
@@ -137,9 +249,16 @@
         <h2>Journal Papers</h2>
 
         <div class='paper_line'><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11037258"> Strengthening Robotics and Automation in Africa: Highlights of ICRA@ 40--Africa [Education]</a></div>
-          <div class='paper_line'><b>Ndivhuwo Makondo</b>, Paul Amayo, Jenalea Rajab, Lifhasi Ramulondi, Steven James, Alexandra Barry, Adam Mukuddem, Thabisa Maweni, Tamlin Love, Geraud Nangue Tasse, Zimkhitha Sijovu, Belinda Matebese, Benjamin Rosman.</div>
+          <div class='paper_line'>Ndivhuwo Makondo*, Paul Amayo, Jenalea Rajab, Lifhasi Ramulondi, Steven James, Alexandra Barry, Adam Mukuddem, Thabisa Maweni, Tamlin Love, <b>Geraud Nangue Tasse</b>, Zimkhitha Sijovu, Belinda Matebese, Benjamin Rosman.</div>
           <div class='paper_line'><i>IEEE Robotics & Automation Magazine, 2025</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <!-- <a class="cite-img-link" href="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" alt="Paper Thumbnail"/>
+            </a> -->
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{makondo2025strengthening,
   title={Strengthening Robotics and Automation in Africa: Highlights of ICRA@ 40--Africa [Education]},
   author={Makondo, Ndivhuwo and Amayo, Paul and Rajab, Jenalea and Ramulondi, Lifhasi and James, Steven and Barry, Alexandra and Mukuddem, Adam and Maweni, Thabisa and Love, Tamlin and Tasse, Geraud Nangue and others},
@@ -149,14 +268,23 @@
   pages={202--216},
   year={2025},
   publisher={IEEE}
-}
-          </pre>
+}             
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <div class='paper_line'><a href="files/papers/Composition and Zero-Shot Transfer with Lattice Structures in RL jair 2025.pdf"> Composition and Zero-Shot Transfer with Lattice Structures in Reinforcement Learning</a></div>
-          <div class='paper_line'><b>Geraud Nangue Tasse</b>, Steven James, Benjamin Rosman.</div>
+          <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>JAIR 2025</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" alt="Paper Thumbnail"/>
+            </a>
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{tasse2025lattice,
   title={Composition and Zero-Shot Transfer with Lattice Structures in Reinforcement Learning},
   author={Nangue Tasse, Geraud and James, Steven and Rosman, Benjamin},
@@ -164,56 +292,92 @@
   volume={82},
   pages={2325--2388},
   year={2025}
-}
-          </pre>
+}              
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <div class='paper_line'><a href="files/papers/Compositional_Instruction_Following_tmlr_2024.pdf">Compositional Instruction Following with Language Models and Reinforcement Learning</a></div>
-          <div class='paper_line'><b>Vanya Cohen, Geraud Nangue Tasse</b>, Nakul Gopalan, Steven James, Matthew Gombolay, Ray Mooney, Benjamin Rosman.</div>
+          <div class='paper_line'>Vanya Cohen*, <b>Geraud Nangue Tasse</b>*, Nakul Gopalan, Steven James, Matthew Gombolay, Ray Mooney, Benjamin Rosman.</div>
           <div class='paper_line'><i>TML 2024</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/posters/rlc_2025_poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/rlc_2025_poster-1.png" alt="Paper Thumbnail"/>
+            </a>
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{cohen2025compositional,
-title={Compositional Instruction Following with Language Models and Reinforcement Learning},
-author={Cohen, Vanya and Nangue Tasse, Geraud and Gopalan, Nakul and James, Steven and Gombolay, Matthew and Mooney, Ray and Rosman, Benjamin},
-journal={Transactions on Machine Learning Research},
-issn={2835-8856},
-year={2024},
-}
-          </pre>
+  title={Compositional Instruction Following with Language Models and Reinforcement Learning},
+  author={Cohen, Vanya and Nangue Tasse, Geraud and Gopalan, Nakul and James, Steven and Gombolay, Matthew and Mooney, Ray and Rosman, Benjamin},
+  journal={Transactions on Machine Learning Research},
+  issn={2835-8856},
+  year={2024},
+}              
+              </pre>
+            </div>
+          </div>
         <p></p>
         
         <h2>Conference Papers</h2>
 
-        <div class='paper_line'><a href="files/papers/skill_machines_iclr_2024.pdf"> Skill Machines: Temporal Logic Skill Composition in Reinforcement Learning</a> | <b><a href="https://github.com/geraudnt/boolean_composition">Code</a></b></div>
-          <div class='paper_line'><b>Geraud Nangue Tasse</b>, D. Jarvis, Steven James, Benjamin Rosman.</div>
+        <div class='paper_line'><a href="files/papers/skill_machines_iclr_2024.pdf"> Skill Machines: Temporal Logic Skill Composition in Reinforcement Learning</a> | <b><a href="https://github.com/geraudnt/skill_machines">Code</a></b></div>
+          <div class='paper_line'><b>Geraud Nangue Tasse</b>*, D. Jarvis, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>ICLR 2024</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/posters/ICLR_2024_Skill_Machines_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/ICLR_2024_Skill_Machines_Poster-1.png" alt="Paper Thumbnail"/>
+            </a>
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @inproceedings{tasse2024skill,
   title={Skill Machines: Temporal Logic Skill Composition in Reinforcement Learning},
   author={Nangue Tasse, Geraud and Jarvis, Devon and James, Steven and Rosman, Benjamin},
   booktitle={International Conference on Learning Representations},
   year={2024}
-}
-          </pre>
+}              
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <div class='paper_line'><a href="files/papers/iclr_2022_generalisation_in_lifelong_rl.pdf"> Generalisation in Lifelong Reinforcement Learning through Logical Composition</a></div>
-          <div class='paper_line'><b>Geraud Nangue Tasse</b>, Steven James, Benjamin Rosman.</div>
+          <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>ICLR 2022</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/posters/ICLR2022_lifelong_algebra_poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/ICLR2022_lifelong_algebra_poster-1.png" alt="Paper Thumbnail"/>
+            </a>
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @inproceedings{tasse2022generalisation,
   title={Generalisation in Lifelong Reinforcement Learning through Logical Composition},
   author={Nangue Tasse, Geraud and James, Steven and Rosman, Benjamin},
   booktitle={International Conference on Learning Representations},
   year={2022}
-}
-          </pre>
+}              
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <div class='paper_line'><a href="files/papers/boolean_algebra_neurips_2020.pdf"> A Boolean Task Algebra for Reinforcement Learning</a> | <b><a href="https://github.com/geraudnt/skill_machines">Code</a></b></div>
-          <div class='paper_line'><b>Geraud Nangue Tasse</b>, Steven James, Benjamin Rosman.</div>
+          <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>NeurIPS 2020</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/posters/NeurIPS2020_boolean_algebra_poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/NeurIPS2020_boolean_algebra_poster-1.png" alt="Paper Thumbnail"/>
+            </a>
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{tasse2020boolean,
   title={A boolean task algebra for reinforcement learning},
   author={Nangue Tasse, Geraud and James, Steven and Rosman, Benjamin},
@@ -221,8 +385,10 @@ year={2024},
   volume={33},
   pages={9497--9507},
   year={2020}
-}
-          </pre>
+}              
+              </pre>
+            </div>
+          </div>
         <p></p>
 
 
@@ -231,102 +397,163 @@ year={2024},
         <h3>2025</h3>
 
         <div class='paper_line'><a href="papers/37_Finding_the_FrameStack_Learning_2025_RLC.pdf"> Finding the FrameStack: Learning What to Remember for Non-Markovian Reinforcement Learning</a></div>
-          <div class='paper_line'><b>Geraud Nangue Tasse</b>, Matthew Riemer, Benjamin Rosman, Tim Klinger.</div>
+          <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Matthew Riemer, Benjamin Rosman, Tim Klinger.</div>
           <div class='paper_line'><i>Finding the Frame Workshop at RLC, 2025</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/posters/RLC_FindingTheFrame_Workshop_AdaptiveStacking_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/RLC_FindingTheFrame_Workshop_AdaptiveStacking_Poster-1.png" alt="Paper Thumbnail"/>
+            </a>
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @inproceedings{tasse2025finding,
   title={Finding the FrameStack: Learning What to Remember for Non-Markovian Reinforcement Learning},
   author={Tasse, Geraud Nangue and Riemer, Matthew and Rosman, Benjamin and Klinger, Tim},
   booktitle={Finding the Frame Workshop at RLC 2025}
-year={2025},
-}
-          </pre>
+  year={2025},
+}             
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <div class='paper_line'><a href="files/papers/esterhuysen-2025-using-RLDM.pdf"> Using NEAT to Learn Operators for Flexible Boolean Composition within Reinforcement Learning</a></div>
-          <div class='paper_line'><b>Amir Esterhuysen</b>, Geraud Nangue Tasse, Steven James, Benjamin Rosman, Jonathan Shock.</div>
+          <div class='paper_line'>Amir Esterhuysen*, <b>Geraud Nangue Tasse</b>, Steven James, Benjamin Rosman, Jonathan Shock.</div>
           <div class='paper_line'><i>Reinforcement Learning and Decision Making Conference (RLDM), 2025</i>.</div>
-          <pre>
-@inproceedings{tasse2025finding,
+          <div class="cite-row">
+            <!-- <a class="cite-img-link" href="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" alt="Paper Thumbnail"/>
+            </a> -->
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
+@inproceedings{amir2025neat,
   title={Using NEAT to Learn Operators for Flexible Boolean Composition within Reinforcement Learning},
   author={Esterhuysen, Amir and James, Steven and Nangue Tasse, Geraud and Rosman, Benjamin and Shock, Jonathan},
   booktitle={Multi-disciplinary Conference on Reinforcement Learning and Decision Making (RLDM)}
 year={2025},
-}
-          </pre>
+}           
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <div class='paper_line'><a href="files/papers/_RLDM25__WVF_Grid_Cells_2025.pdf"> Learning Grid Cells with World Value Functions</a></div>
-          <div class='paper_line'><b>Sergio A. Frasco</b>, Clémentine Dominé, Devon Jarvis, Geraud Nangue Tasse.</div>
+          <div class='paper_line'>Sergio A. Frasco*, Clémentine Dominé, Devon Jarvis, <b>Geraud Nangue Tasse</b>.</div>
           <div class='paper_line'><i>Reinforcement Learning and Decision Making Conference (RLDM), 2025</i>.</div>
-          <pre>
-@inproceedings{tasse2025finding,
+          <div class="cite-row">
+            <!-- <a class="cite-img-link" href="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" alt="Paper Thumbnail"/>
+            </a> -->
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
+@inproceedings{sergio2025learning,
   title={Learning Grid Cells with World Value Functions},
   author={Frasco, Sergio A. and Dominé, Clémentine and Jarvis, Devon and Nangue Tasse, Geraud},
   booktitle={Multi-disciplinary Conference on Reinforcement Learning and Decision Making (RLDM)}
-year={2025},
-}
-          </pre>
+  year={2025},
+}           
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <h3>2024</h3>
 
         <div class='paper_line'><a href="files/papers/8_ROSARL_Reward_Only_Safe_RL_RLSW_RLC_2024.pdf"> ROSARL: Reward-Only Safe Reinforcement Learning</a> | <b><a href="https://github.com/geraudnt/rosarl">Code</a></b></div>
-          <div class='paper_line'><b>Geraud Nangue Tasse</b>,  Tamlin Love, Mark Nemecek, Steven James, Benjamin Rosman.</div>
+          <div class='paper_line'><b>Geraud Nangue Tasse</b>*,  Tamlin Love, Mark Nemecek, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>Reinforcement Learning Safety Workshop (RLSW) @ RLC, 2024</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/posters/RLSW_2024_ROSARL_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/RLSW_2024_ROSARL_Poster-1.png" alt="Paper Thumbnail"/>
+            </a>
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{
-tasse2024rosarl,
-title={{ROSARL}: Reward-Only Safe Reinforcement Learning},
-author={Nangue Tasse, Geraud and Love, Tamlin and Nemecek, Mark and James, Steven and Rosman, Benjamin},
-journal={First Reinforcement Learning Safety Workshop at RLC},
-year={2024},
+  tasse2024rosarl,
+  title={{ROSARL}: Reward-Only Safe Reinforcement Learning},
+  author={Nangue Tasse, Geraud and Love, Tamlin and Nemecek, Mark and James, Steven and Rosman, Benjamin},
+  journal={First Reinforcement Learning Safety Workshop at RLC},
+  year={2024},
 }
-          </pre>
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <div class='paper_line'><a href="https://openreview.net/pdf?id=DiesPiytvJ"> Optimal Task Generalisation in Cooperative Multi-Agent Reinforcement Learning</a></div>
-          <div class='paper_line'><b>Simon Rosen</b>,  Abdel Mfougouon Njupoun, Geraud Nangue Tasse, Steven James, Benjamin Rosman.</div>
+          <div class='paper_line'>Simon Rosen*,  Abdel Mfougouon Njupoun, <b>Geraud Nangue Tasse</b>, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>Reinforcement Learning Safety Workshop (CoCoMARL) @ RLC, 2024</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <!-- <a class="cite-img-link" href="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" alt="Paper Thumbnail"/>
+            </a> -->
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{
-tasse2024rosarl,
-title={Optimal Task Generalisation in Cooperative Multi-Agent Reinforcement Learning},
-author={Rosen, Simon and Njupoun, Abdel Mfougouon and Nangue Tasse, Geraud and James, Steven and Rosman, Benjamin},
-journal={Coordination and Cooperation in Multi-Agent Reinforcement Learning at RLC},
-year={2024},
-}
-          </pre>
+  simon2024optimal,
+  title={Optimal Task Generalisation in Cooperative Multi-Agent Reinforcement Learning},
+  author={Rosen, Simon and Njupoun, Abdel Mfougouon and Nangue Tasse, Geraud and James, Steven and Rosman, Benjamin},
+  journal={Coordination and Cooperation in Multi-Agent Reinforcement Learning at RLC},
+  year={2024},
+}        
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <div class='paper_line'><a href="https://arxiv.org/pdf/2312.11364"> Counting Reward Automata: Sample Efficient Reinforcement Learning Through
 the Exploitation of Reward Function Structure</a></div>
-          <div class='paper_line'><b>Tristan Bester</b>, Geraud Nangue Tasse, Steven James, Benjamin Rosman.</div>
+          <div class='paper_line'>Tristan Bester*, <b>Geraud Nangue Tasse</b>, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>Neuro-Symbolic Learning and Reasoning (NuCLeaR) @ AAAI, 2024</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <!-- <a class="cite-img-link" href="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" alt="Paper Thumbnail"/>
+            </a> -->
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{bester2024counting,
   title={Counting Reward Automata: Sample Efficient Reinforcement Learning Through
 the Exploitation of Reward Function Structure},
   author={Bester, Tristan and Nangue Tasse, Geraud and James, Steven and Rosman, Benjamin},
   journal={Worshop on Neuro-Symbolic Learning and Reasoning in the era of Large Language Models at AAAI},
   year={2024}
-}
-          </pre>
+}        
+              </pre>
+            </div>
+          </div>
         <p></p>
                 
         <div class='paper_line'><a href="https://arxiv.org/pdf/2407.14516?"> RobocupGym: A challenging continuous control benchmark in Robocup</a> | <b><a href="https://github.com/Michael-Beukman/RobocupGym">Code</a></b></div>
-          <div class='paper_line'><b>Michael Beukman</b>, Branden Ingram, Geraud Nangue Tasse, Benjamin Rosman, Pravesh Ranchod.</div>
+          <div class='paper_line'>Michael Beukman*, Branden Ingram, <b>Geraud Nangue Tasse</b>, Benjamin Rosman, Pravesh Ranchod.</div>
           <div class='paper_line'><i>Preprint, 2024</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <!-- <a class="cite-img-link" href="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" alt="Paper Thumbnail"/>
+            </a> -->
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{beukman2024robocup,
   title={RobocupGym: A challenging continuous control benchmark in Robocup},
   author={Beukman, Michael and Ingram, Branden and Nangue Tasse, Geraud and Rosman, Benjamin and Ranchod, Pravesh},
-  journal={Advances in Neural Information Processing Systems},
-  volume={33},
-  pages={9497--9507},
-  year={2020}
-}
-          </pre>
+  journal={arxiv.org},
+  year={2024}
+}       
+              </pre>
+            </div>
+          </div>
         <p></p>
 
 
@@ -334,113 +561,211 @@ the Exploitation of Reward Function Structure},
 
 
         <div class='paper_line'><a href="https://arxiv.org/pdf/2312.11364"> Facilitating Safe Sim-to-Real through Simulator Abstraction and Zero-shot Task Composition</a></div>
-          <div class='paper_line'><b>Tamlin Love</b>, Devon jarvis, Geraud Nangue Tasse, Branden Ingram, Steven James, Benjamin Rosman.</div>
+          <div class='paper_line'>Tamlin Love*, Devon jarvis, <b>Geraud Nangue Tasse</b>, Branden Ingram, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>Lifelong Learning of High-level Cognitive and Reasoning Skills Workshop @ IROS, 2022</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <!-- <a class="cite-img-link" href="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/JAIR_2025_RLC_Composition_Poster-1.png" alt="Paper Thumbnail"/>
+            </a> -->
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{love2022facilitating,
   title={Facilitating Safe Sim-to-Real through Simulator Abstraction and Zero-shot Task Composition},
   author={Love, Tamlin and Jarvis, Devon and Tasse, Geraud Nangue and Ingram, Branden and James, Steven and Rosman, Benjamin},
   journal={Lifelong Learning of High-level Cognitive and Reasoning Skills Workshop at IROS},
   year={2022}
-}
-          </pre>
+}       
+              </pre>
+            </div>
+          </div>
+          <p></p>
 
         <div class='paper_line'><a href="https://arxiv.org/pdf/2203.00669"> Hierarchical Reinforcement Learning with AI Planning Models</a> </div>
-          <div class='paper_line'><b>Junkyu Lee</b>, Michael Katz, Don Joven Agravante, Miao Liu, Geraud Nangue Tasse, Tim Klinger, Shirin Sohrabi.</div>
+          <div class='paper_line'>Junkyu Lee*, Michael Katz, Don Joven Agravante, Miao Liu, <b>Geraud Nangue Tasse</b>, Tim Klinger, Shirin Sohrabi.</div>
           <div class='paper_line'><i>Planning and Reinforcement Learning Workshop (PRL) @ ICAPS, 2022</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <!-- <a class="cite-img-link" href="files/posters/RLDM2022_WVF_poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/RLDM2022_WVF_poster-1.png" alt="Paper Thumbnail"/>
+            </a> -->
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{lee2022hierarchical,
   title={Hierarchical Reinforcement Learning with AI Planning Models},
   author={Lee, Junkyu and Katz, Michael and Agravante, Don Joven and Liu, Miao and Tasse, Geraud Nangue and Klinger, Tim and Sohrabi, Shirin},
   journal={Bridging the Gap Between AI Planning and Reinforcement Learning Workshop at ICAPS},
   year={2022}
 }
-          </pre>
+              </pre>
+            </div>
+          </div>
         <p></p>
         
         <div class='paper_line'><a href="files/papers/PRL2022_paper_10.pdf"> World Value Functions: Knowledge Representation for Learning and Planning</a> | <b><a href="https://github.com/geraudnt/world-value-functions-prl">Code</a></b></div>
-          <div class='paper_line'><b>Geraud Nangue Tasse</b>, Steven James, Benjamin Rosman.</div>
+          <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>Planning and Reinforcement Learning Workshop (PRL) @ ICAPS, 2022</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/posters/PRL2022_WVF_poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/PRL2022_WVF_poster-1.png" alt="Paper Thumbnail"/>
+            </a>
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{tasse2022wvfprl,
   title={World value functions: Knowledge representation for learning and planning},
   author={Nangue Tasse, Geraud and Rosman, Benjamin and James, Steven},
   journal={Bridging the Gap Between AI Planning and Reinforcement Learning Workshop at ICAPS},
   year={2022}
 }
-          </pre>
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <div class='paper_line'><a href="files/papers/RLDM2022__world_value_function.pdf"> World Value Functions: Knowledge Representation for Multitask
           Reinforcement Learning</a></div>
-          <div class='paper_line'><b>Geraud Nangue Tasse</b>, Steven James, Benjamin Rosman.</div>
+          <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>Reinforcement Learning and Decision Making Conference (RLDM), 2022</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/posters/RLDM2022_WVF_poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/RLDM2022_WVF_poster-1.png" alt="Paper Thumbnail"/>
+            </a>
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{tasse2022wvfrldm,
   title={World Value Functions: Knowledge Representation for Multitask Reinforcement Learning},
   author={Nangue Tasse, Geraud and Rosman, Benjamin and James, Steven},
   journal={Multi-disciplinary Conference on Reinforcement Learning and Decision Making (RLDM)},
   year={2022}
 }
-          </pre>
+              </pre>
+            </div>
+          </div>
         <p></p>
 
         <div class='paper_line'><a href="files/papers/13_end_to_end_learning_to_follow_corl_2022.pdf">  End-to-end learning to follow language instructions with compositional policies</a>.</div>
-          <div class='paper_line'><b>Vanya Cohen, Geraud Nangue Tasse</b>, Nakul Gopalan, Steven James, Matthew Gombolay, Benjamin Rosman.</div>
+          <div class='paper_line'>Vanya Cohen*, <b>Geraud Nangue Tasse</b>*, Nakul Gopalan, Steven James, Matthew Gombolay, Benjamin Rosman.</div>
           <div class='paper_line'><i>Workshop on Language and Robotics at CoRL, 2022</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <!-- <a class="cite-img-link" href="files/posters/RLDM2022_WVF_poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/RLDM2022_WVF_poster-1.png" alt="Paper Thumbnail"/>
+            </a> -->
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @inproceedings{cohen2022end,
   title={End-to-end learning to follow language instructions with compositional policies},
   author={Cohen, Vanya and Tasse, Geraud Nangue and Gopalan, Nakul and James, Steven and Mooney, Ray and Rosman, Benjamin},
   booktitle={Workshop on Language and Robotics at CoRL 2022},
   year={2022}
 }
-          </pre>
+              </pre>
+            </div>
+          </div>
           <p></p>
 
+
+          <h3>2021</h3>
+
         <div class='paper_line'><a href="files/papers/compositional_policies_and_language.pdf">  Learning to Follow Language Instructions with Compositional Policies</a>.</div>
-          <div class='paper_line'><b>Vanya Cohen, Geraud Nangue Tasse</b>, Nakul Gopalan, Steven James, Matthew Gombolay, Benjamin Rosman.</div>
+          <div class='paper_line'>Vanya Cohen*, <b>Geraud Nangue Tasse</b>*, Nakul Gopalan, Steven James, Matthew Gombolay, Benjamin Rosman.</div>
           <div class='paper_line'><i>AAAI Fall Symposium on AI for HRI, 2021</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <!-- <a class="cite-img-link" href="files/posters/RLDM2022_WVF_poster-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/RLDM2022_WVF_poster-1.png" alt="Paper Thumbnail"/>
+            </a> -->
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @article{cohen2021learning,
   title={Learning to follow language instructions with compositional policies},
   author={Cohen, Vanya and Tasse, Geraud Nangue and Gopalan, Nakul and James, Steven and Gombolay, Matthew and Rosman, Benjamin},
   journal={AAAI Fall Symposium on AI for HRI},
   year={2021}
 }
-          </pre>
+              </pre>
+            </div>
+          </div>
           <p></p>
 
 
         <h3>2020</h3>
 
         <div class='paper_line'><a href="files/papers/57_logical_composition_in_lifelong_icml_2020.pdf">  Logical Composition for Lifelong Reinforcement Learning</a></div>
-          <div class='paper_line'><b>Geraud Nangue Tasse</b>, Steven James, Benjamin Rosman.</div>
+          <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Steven James, Benjamin Rosman.</div>
           <div class='paper_line'><i>4th Lifelong Learning Workshop at ICML, 2020</i>.</div>
-          <pre>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/posters/ICML_LLML_20-1.png" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/posters/ICML_LLML_20-1.png" alt="Paper Thumbnail"/>
+            </a>
+          
+            <div class="cite-prewrap">
+              <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+              <pre class="cite-pre">
 @inproceedings{tasse2020logical,
   title={Logical Composition in Lifelong Reinforcement Learning},
   author={Tasse, Geraud Nangue and James, Steven and Rosman, Benjamin},
   booktitle={4th Lifelong Machine Learning Workshop at ICML},
   year={2020}
 }
-          </pre>
+              </pre>
+            </div>
+          </div>
           <p></p>
+
+          <div class='paper_line'><a href="files/papers/nangue-2020-boolean-b.pdf">  A Boolean Task Algebra for Reinforcement Learning</a></div>
+            <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Steven James, Benjamin Rosman.</div>
+            <div class='paper_line'><i>Beyond “Tabula Rasa” in Reinforcement Learning (BeTR-RL): Agents that remember, adapt, and generalize (Workshop at ICLR), 2020</i>.</div>
+            <div class="cite-row">
+              <a class="cite-img-link" href="files/posters/dlrl_2020_poster-1.png" target="_blank" rel="noopener">
+                <img class="cite-img" src="files/posters/dlrl_2020_poster-1.png" alt="Paper Thumbnail"/>
+              </a>
+            
+              <div class="cite-prewrap">
+                <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+                <pre class="cite-pre">
+  @inproceedings{tasse2020boolean,
+    title={A Boolean Task Algebra for Reinforcement Learning},
+    author={Tasse, Geraud Nangue and James, Steven and Rosman, Benjamin},
+    booktitle={Beyond “Tabula Rasa” in Reinforcement Learning (BeTR-RL): Agents that remember, adapt, and generalize Workshop at ICLR},
+    year={2020}
+  }
+                </pre>
+              </div>
+            </div>
+            <p></p>
 
 
         <h3>2019</h3>
           
         <div class='paper_line'><a href="files/papers/BAI_NIPS_Workshop.pdf">   Hypersearch: A Parallel Training Approach For Improving Neural Networks Performance</a></div>
-        <div class='paper_line'><b>Geraud Nangue Tasse</b>, James Connan.</div>
+        <div class='paper_line'><b>Geraud Nangue Tasse</b>*, James Connan.</div>
         <div class='paper_line'><i>Black in AI workshop at NeurIPS, 2019</i>.</div>
-          <pre>
+        <div class="cite-row">
+          <a class="cite-img-link" href="files/posters/BAI_19-1.png" target="_blank" rel="noopener">
+            <img class="cite-img" src="files/posters/BAI_19-1.png" alt="Paper Thumbnail"/>
+          </a>
+        
+          <div class="cite-prewrap">
+            <button class="copy-btn" type="button" aria-label="Copy citation">Copy</button>
+            <pre class="cite-pre">
 @inproceedings{tasse2019hypersearch,
   title={Hypersearch: A Parallel Training Approach For Improving Neural Networks Performance},
   author={Tasse, Geraud Nangue and Connan, James},
   booktitle={Black in AI workshop at NeurIPS},
-  year={2020}
+  year={2019}
 }
-          </pre>
+            </pre>
+          </div>
+        </div>
         <p></p>
           
       </section>
