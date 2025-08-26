@@ -198,7 +198,7 @@
         If an agent only learns atomic skills (e.g., go to button, go to cylinder), it
         cannot immediately solve tasks such as go to button <i>while avoiding blue</i>.
         In general,
-        <ul>
+        <ul class="callout">
           <li><strong style="color:red">Spatial curse</strong> $2^{2^\mathcal{|P|}}$: there are super-exponentially many Boolean expressions the agent may need to
             <i>eventually</i> satisfy, and</li>
           <li><strong style="color:red">Temporal curse</strong> $2^{2^\mathcal{|P|}}$: there are super-exponentially many Boolean expressions it may need
@@ -214,10 +214,6 @@
             <li><strong>Task primitives</strong> $\mathcal{M}$: composable MDPs for eventually satisfying each proposition.</li>
             <li><strong>Skill primitives</strong> $\mathcal{Q}$: World Value Functions (WVFs) for each task primitive.</li>
           </ul>
-          <p>
-            Unlike regular value functions, WVFs are composable: we can compute the value of any
-            Boolean expression over task primitives <i>without further learning</i>.
-          </p>
         </div>
         <div>
           <h3>Temporal: Constraints</h3>
@@ -228,6 +224,10 @@
           </p>
         </div>
       </div>
+      <p class="callout">
+        Unlike regular value functions, WVFs are composable: we can compute the value of any
+        Boolean expression over task primitives <i>without further learning</i>.
+      </p>
 
       <div>
         <img src="../blogposts/skill_machines/constraints.png" alt="Safety-Gym style environment with button, cylinder, and blue region" style="width:100%; height: auto;" />
