@@ -193,16 +193,20 @@
         skill to execute at each automaton node.
       </p>
 
-      <h2>The Roadblock: Two Curses of Dimensionality</h2>
+      <h2><strong>The Roadblock</strong>: Two <strong style="color:red">Curses</strong> of Dimensionality</h2>
       <p>
         If an agent only learns atomic skills (e.g., go to button, go to cylinder), it
         cannot immediately solve tasks such as go to button <i>while avoiding blue</i>.
-        In general, there are super-exponentially many Boolean expressions the agent may need to
-        <i>eventually</i> satisfy (spatial curse) and super-exponentially many expressions it may need
-        to keep <i>always</i> true (temporal curse).
+        In general,
+        <ul>
+          <li><strong style="color:red">Spatial curse</strong> $2^{2^\mathcal{|P|}}$: there are super-exponentially many Boolean expressions the agent may need to
+            <i>eventually</i> satisfy, and</li>
+          <li><strong style="color:red">Temporal curse</strong> $2^{2^\mathcal{|P|}}$: there are super-exponentially many Boolean expressions it may need
+            to <i>always</i> satisfy.</li>
+        </ul>
       </p>
       
-      <h2>Our Solution: Primitives for Spatial and Temporal Structure</h2>
+      <h2><strong>Our Solution</strong>: Composable <strong style="color:green">Primitives</strong> for Spatial and Temporal Structure</h2>
       <div class="grid-two">
         <div>
           <h3>Spatial: Task &amp; Skill Primitives</h3>
