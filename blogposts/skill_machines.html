@@ -29,23 +29,10 @@
       .bottomrule { border-bottom: 4px solid #000 !important; }
       td:first-child { text-align: left; }
 
-      .hero {
-        display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap;
-        margin-bottom: 18px;
-      }
       .workPicture { border-radius: 10px; }
       .inlinefig { overflow-x:auto; }
       .inlinefig div { display:inline-flex; }
       .inlinefig img { width: 170px; height: 170px; padding-left: 12px; border-radius: 6px; }
-      .callout {
-        background:#f7f7ff; border-left: 4px solid #5850ec; padding:12px 14px; border-radius:6px; margin:14px 0;
-      }
-      .tag {
-        display:inline-block; padding:2px 8px; border:1px solid #ccc; border-radius:999px; font-size:12px; margin-right:6px;
-      }
-      .grid-two {
-        display:grid; grid-template-columns: 1fr 1fr; gap: 14px;
-      }
       @media (max-width: 900px) {
         .grid-two { grid-template-columns: 1fr; }
       }
@@ -199,9 +186,9 @@
         cannot immediately solve tasks such as go to button <i>while avoiding blue</i>.
         In general,
         <ul class="callout">
-          <li><strong style="color:red">Spatial curse</strong> $2^{2^\mathcal{|P|}}$: there are super-exponentially many Boolean expressions the agent may need to
+          <li><strong style="color:red">Spatial curse</strong> $2^{2^\mathcal{P}}$: there are super-exponentially many Boolean expressions the agent may need to
             <i>eventually</i> satisfy, and</li>
-          <li><strong style="color:red">Temporal curse</strong> $2^{2^\mathcal{|P|}}$: there are super-exponentially many Boolean expressions it may need
+          <li><strong style="color:red">Temporal curse</strong> $2^{2^\mathcal{P}}$: there are super-exponentially many Boolean expressions it may need
             to <i>always</i> satisfy.</li>
         </ul>
       </p>

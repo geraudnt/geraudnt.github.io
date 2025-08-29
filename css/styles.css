@@ -55,7 +55,7 @@ a:hover small {
 }
 
 .wrapper {
-  width:1020px;
+  width:1120px;
   margin: auto;
 }
 
@@ -77,6 +77,77 @@ pre {
   border-radius:5px;
   border:1px solid #e5e5e5;
   overflow-x: auto;
+}
+
+.cite-row {
+  display: flex;
+  align-items: stretch; /* makes items share the tallest height */
+  /* gap: 12px; */
+  justify-content: center;
+  align-items: center;
+}
+
+.cite-img-link {
+  display: block;
+  height: 200px;
+  object-fit: cover; 
+}
+
+.cite-img {
+  display: block;
+  height: 100%;      /* match the <pre> height */
+  object-fit: cover; /* crop if too tall/narrow */
+  /* border-radius: 6px; */
+  margin-left: 20px;
+}
+
+.cite-prewrap {
+  position: relative;
+  flex: 1;
+  min-width: 0; /* allow shrinking */
+  margin-left: 20px;
+}
+
+.cite-pre {
+  margin: 0;
+  /* padding: 12px 14px 12px 12px; */
+  /* background: #0f172a;
+  color: #e5e7eb;         */
+  /* border-radius: 6px; */
+  overflow: auto;
+  line-height: 1.4;
+  font-size: 14px;
+  height: 180px;
+}
+
+/* Copy button */
+.copy-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  padding: 6px 10px;
+  font-size: 12px;
+  /* border: 1px solid #334155;
+  border-radius: 6px;
+  background: #111827;
+  color: #e5e7eb; */
+  cursor: pointer;
+}
+.copy-btn:hover { background: #ffffff; }
+.copy-btn:active { transform: translateY(1px); }
+
+.callout {
+  background:#f7f7ff; border-left: 4px solid #5850ec; padding:4px 14px; border-radius:6px; margin:14px 0;
+}
+.tag {
+  display:inline-block; padding:2px 8px; border:1px solid #ccc; border-radius:999px; font-size:12px; margin-right:6px;
+}
+.hero {
+  display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap;
+  margin-bottom: 18px;
+}
+.grid-two {
+  display:grid; grid-template-columns: 1fr 1fr; gap: 14px;
 }
 
 table {
@@ -104,15 +175,15 @@ img {
 }
 
 header {
-  /*margin-top:100px;*/
+  margin-top:100px;
   width:270px;
-  float:left;
+  float:middle;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
 section {
-  width:700px;
+  width:800px;
   float:right;
   padding-bottom:50px;
   padding-left:150px;
@@ -189,6 +260,10 @@ footer {
   pre, code {
     word-wrap:normal;
   }
+
+  .cite-row {
+    display: block;
+  }
 }
 
 @media print, screen and (max-width: 480px) {
@@ -203,6 +278,7 @@ footer {
   header li, header ul li + li + li {
     width:33%;
   }
+  
 }
 
 @media print {

@@ -87,15 +87,20 @@
 
       <!-- BODY -->
     <section>
-        <h3>Welcome!</h3>
+        <h1>Welcome!</h1>
 
         <p>
-          I am a Ph.D. student in Computer Science at the <a href="https://www.wits.ac.za/">University of the Witwatersrand (Wits)</a>, advised by Professor <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>. I am also a member of the <a href="https://raillab.org/">RAIL Lab research group</a>.
-          Before moving to Wits for my M.Sc, I did my B.Sc in Computer Science, Pure&Applied Mathematics and Physics at <a href="https://www.ru.ac.za/">Rhodes University</a>.
+          I am a <a href="https://en.wikipedia.org/wiki/Lecturer">Lecturer</a> at the <a href="https://www.wits.ac.za/">University of the Witwatersrand (Wits)</a> in the <a href="https://www.raillab.org/">RAIL</a> and <a href="https://caandl.org/">CAandL</a> labs. Previously I did my Ph.D. and M.Sc. here advised by <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a> and <a href="https://sdjames.me/">Steven James</a>.
+          Before moving to Wits, I did my B.Sc. majoring in Computer Science, Pure&Applied Mathematics and Physics&Electronics at <a href="https://www.ru.ac.za/">Rhodes University</a>.
         </p>
+        <p>
+          I'm currently interested in understanding general intelligence, and believe many of its observed and desired properties (e.g. sample efficiency, generalisation, continual learning, language, reasoning, safety, interpretability, etc) can emerge from a single unified framework with minimal added priors. 
+          Hence my main research interests lie in <a href="">reinforcement learning (RL)</a> and <a href="">related fields</a> (like robotics, neuroscience, psychology, etc). See the <a href="#featured_research">featured research</a> below for a snapshot, particularly my <a href="#phd_thesis" onclick="gtag('_trackEvent', 'Click', 'Thesis (b) Clicked');">Ph.D. Thesis</a>. 
+        </p>
+        <p style="width: 100%; text-align: center; justify-content: center;"><b>My life philosophy:</b> <i>"What I cannot create, I do not understand" - Richard Feynman</i></p>
         
         <!-- NEWS -->
-        <h3>News</h3>
+        <h1>News</h1>
             <ul>
                 <li>December 2022: Talk at the <a href="https://indabax.co.za/"> Deep Learning IndabaX South Africa</a> in Pretoria</li>
                 <li>October 2022: Talk at UCT's <a href="https://shocklab.net/">SHOCKLAB</a> </li>
@@ -110,304 +115,174 @@
             </ul>
 
 
-        <!-- INTERESTS -->
-        <h3> Interests </h3>
-
-        <p>
-          I have always been fascinated by the immense potential for good of creating intelligent systems---the pinnacle of which is artificial general intelligence (AGI). My main research interests lie in reinforcement learning (RL) since it is the subfield of machine learning with the most potential for achieving AGI (through embodied agents that leverage the other AI fields where appropriate).
-       	</p>
-
-        <p>
-            I am currently interested in techniques that allow an agent to leverage past knowledge to solve new tasks quickly. In particular, I focus on composition techniques. These allow an agent to leverage existing skills to build complex, novel behaviors. During my <a href="files/papers/Thesis_msc.pdf" onclick="gtag('_trackEvent', 'Click', 'Thesis (b) Clicked');">M.Sc research</a>, I introduced a formal framework for specifying tasks using logic operators (<i>AND</i>, <i>OR</i>, <i>NOT</i>), and how to similarly apply them on learned skills to generate provably optimal solutions to new tasks.
-            Not only does this allow for safer and interpretable reward specification---since any new task reward function can be composed of well-understood components---it also leads to a combinatorial explosion in an agent’s ability.
-            These are particularly important for agents in a multitask or lifelong setting.
-        </p>
-
-        <p>
-          Here are a couple longterm milestones I think are needed on the road to AGI, and which I am working towards:
-            <ol>
-              <li>
-                A provably general knowledge representation for transfer learning in RL, but not too general (it needs to be sufficiently constrained to be practical).
-              </li>
-              <li>
-                Principled methods for efficiently learning <i>base</i> skills with said knowledge represention.
-              </li>
-              <li>
-                Principled methods for agents to do any computation over skills with no/minimal further learning. That is, creating agents that are <i></i>Turing</i> complete in skill space.
-              </li>
-            </ol>  
-        </p>
-        	
-        </p>
-
-
         <!-- FEATURED PUBLICATIONS -->
-        <h3> Featured Research </h3>
+        <h1 id="featured_research"> Featured Research </h1>
 
-
-        <table style="margin-top:-12px;">
-
-          <!-- Work 2 -->
-          <tr style="border-bottom:1px solid #e5e5e5;">
-              <!-- IMAGE -->
-              <td>
-                  <img class="workPicture" src="files/images/skill_machines.png" alt="WVF">
-              </td>
-
-              <!-- TITLE AND INFO -->
-              <td>
-                  <br>
-                  <div id="indexWorkText">
-                      <!-- Title + Link -->
-                      <b><a href="files/papers/skill_machines_iclr_2024.pdf" onclick="gtag('_trackEvent', 'Click', 'WVF + WVF for Planning Clicked');"> Skill Machines: Temporal Logic Composition in Reinforcement Learning </a></b>
-                      <br>
-                      <b><a href="files/posters/NeurIPS2022_DeepRL_workshop_skill_machines_poster.pdf">Poster</a></b> @ <i>DeepRL @ NeurIPS 2022; Lifelong learning @ IROS 2022</i>; 
+        <div id="phd_thesis" style="border-bottom:10px solid #e5e5e5;">
+          <div class='paper_line'><a href="files/papers/Thesis_PhD.pdf">Towards Lifelong Reinforcement Learning Through Temporal Logics and Zero-Shot Composition</a></div>
+          <div class='paper_line'><b>Geraud Nangue Tasse</b>. Advised by Steven James and Prof Benjamin Rosman.</div>
+          <div class='paper_line'><i>Ph.D. Thesis (Computer Science), University of the Witwatersrand, 2024</i>.</div>
+          <div class="cite-row">
+            <a class="cite-img-link" href="files/images/fire_agents.gif" target="_blank" rel="noopener">
+              <img class="cite-img" src="files/images/fire_agents.gif" alt="Thumbnail"/>
+            </a>
+          <div class="cite-prewrap">
+            <div class='callout'>
+              This thesis proposes a framework to develop AI agents with three key abilities we believe general agents should have:
+              <ul>
+                <li><b>Flexibility:</b> Agents should adapt to various tasks with minimal learning;</li>
+                <li><b>Instructability:</b> Agents should understand and execute task specifications provided by humans in a comprehensible manner;</li>
+                <li><b>Reliability:</b> Agents should solve tasks safely and effectively with theoretical guarantees on their behavior.</li>
+              </ul>
+              <!-- This is achieved respectively by introducing: the logical composition of
+              arbitrary tasks with safety guarantees, world value functions for zero-shot skill composition and lifelong sample efficiency,
+              and methods for agents to understand and execute language instructions. -->
+            </div>
+          </div>
+          </div>
+          <!-- <p></p> -->
+        </div>
+        <!-- __________________________________________________________________________________________________________________________ -->
+           
+          <div style="border-bottom:1px solid #e5e5e5;">
+            <div class='paper_line'><a href="papers/37_Finding_the_FrameStack_Learning_2025_RLC.pdf"> Finding the FrameStack: Learning What to Remember for Non-Markovian Reinforcement Learning</a></div>
+              <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Matthew Riemer, Benjamin Rosman, Tim Klinger.</div>
+              <div class='paper_line'><i>Finding the Frame Workshop at RLC, 2025</i>.</div>
+              <div class="cite-row">
+                <a class="cite-img-link" href="files/images/adaptive_stacking.png" target="_blank" rel="noopener">
+                  <img class="cite-img" src="files/images/adaptive_stacking.png" alt="Paper Thumbnail"/>
+                </a>
+              
+                <div class="cite-prewrap">
+                  <div class='callout'>
+                    <b style="font-size: 30px; text-align: center;"><i>Markov need not apply!</i></b> 
+                    <!-- <p></p> -->
+                    <ul>
+                      <li>Efficiently handles <b>long-term dependencies</b> by learning what to remember in NMDPs.</li>
+                      <li><b>Reduces</b> memory and compute costs while <b>preserving optimality</b>.</li>
+                      <li>Creates a <b>compact abstraction</b> leading to <b>better generalisation</b>.</li>
+                    </ul>
                   </div>
-                  <br>
-                  <!-- One sentence description -->
-                  <div id="indexWorkText">
-                    A framework where an agent first learns a set of base skills in a reward-free setting,
-                    and then combines these skills with the learned skill machine to produce composite
-                    behaviours specified by any regular language, such as linear temporal logics.
-                  </div>
-                  <br>
-
-                  <!-- Collaborators -->
-                  <div id="indexWorkText">
-                    Joint work with <a href="https://sdjames.me/">Steven James</a> and <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>.
-                  </div>
-                  <br>
-                  <br>
-              </td>
-          </tr>
+                </div>
+              </div>
+              <!-- <p></p> -->
+          </div>
           <!-- __________________________________________________________________________________________________________________________ -->
 
-          <!-- Work 2 -->
-          <tr style="border-bottom:1px solid #e5e5e5;">
-              <!-- IMAGE -->
-              <td>
-                  <img class="workPicture" src="files/images/wvf_prl.png" alt="WVF">
-              </td>
-
-              <!-- TITLE AND INFO -->
-              <td>
-                  <br>
-                  <div id="indexWorkText">
-                      <!-- Title + Link -->
-                      <b><a href="https://prl-theworkshop.github.io/prl2022-icaps/papers/PRL2022_paper_10.pdf" onclick="gtag('_trackEvent', 'Click', 'WVF + WVF for Planning Clicked');"> World Value Functions: Knowledge Representation for Learning and Planning </a></b>
-                      <br>
-                      <b><a href="files/posters/PRL2022_WVF_poster.pdf">Poster</a></b> @ <i>PRL @ ICAPS 2022</i>
-                  </div>
-                  <br>
-                  <!-- One sentence description -->
-                  <div id="indexWorkText">
-                    A general value function with mastery of the world (provably) that encodes the solution to the current task 
-                    and has downstream zero-shot abilities.
-                  </div>
-                  <br>
-
-                  <!-- Collaborators -->
-                  <div id="indexWorkText">
-                    Joint work with <a href="https://sdjames.me/">Steven James</a> and <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>.
-                  </div>
-                  <br>
-                  <br>
-              </td>
-          </tr>
-          <!-- __________________________________________________________________________________________________________________________ -->
-
-          <!-- Work 2 -->
-          <tr style="border-bottom:1px solid #e5e5e5;">
-              <!-- IMAGE -->
-              <td>
-                  <img class="workPicture" src="files/images/lifelong_algebra.png" alt="SOPGOL">
-              </td>
-
-              <!-- TITLE AND INFO -->
-              <td>
-                  <br>
-                  <div id="indexWorkText">
-                      <!-- Title + Link -->
-                      <b><a href="files/papers/iclr_2022_generalisation_in_lifelong_rl.pdf" onclick="gtag('_trackEvent', 'Click', 'Language + Skill Composition Clicked');"> Generalisation in Lifelong Reinforcement Learning through Logical Composition </a></b>
-                      <br>
-                      <b><a href="files/posters/ICLR2022_lifelong_algebra_poster.pdf">Poster</a></b> @ <i>ICLR 2022</i>
-                  </div>
-                  <br>
-                  <!-- One sentence description -->
-                  <div id="indexWorkText">
-                    A framework with theoretical guarantees for an agent to quickly generalize 
-                    over a task space by autonomously determining whether a new task can be solved 
-                    zero-shot using existing skills, or whether a task-specific skill should be learned few-shot.
-                  </div>
-                  <br>
-
-                  <!-- Collaborators -->
-                  <div id="indexWorkText">
-                    Joint work with <a href="https://sdjames.me/">Steven James</a> and <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>.
-                  </div>
-                  <br>
-                  <br>
-              </td>
-          </tr>
-          <!-- __________________________________________________________________________________________________________________________ -->
-
-            <!-- Work 2 -->
-            <tr style="border-bottom:1px solid #e5e5e5;">
-                <!-- IMAGE -->
-                <td>
-                    <img class="workPicture" src="files/images/fli_composition.png" alt="Language and skill composition">
-                </td>
-
-                <!-- TITLE AND INFO -->
-                <td>
-                    <br>
-                    <div id="indexWorkText">
-                        <!-- Title + Link -->
-                        <b><a href="files/papers/compositional_policies_and_language.pdf" onclick="gtag('_trackEvent', 'Click', 'Language + Skill Composition Clicked');">Learning to Follow Language Instructions with Compositional Policies </a></b>
-                        <br>
-                        <i>AAAI Fall Symposium on AI for HRI, 2021</i>
-                    </div>
-                    <br>
-                    <!-- One sentence description -->
-                    <div id="indexWorkText">
-                      We propose a framework that learns to execute natural language
-                      instructions in an environment consisting of goalreaching
-                      tasks that share features of their task descriptions.
-                      Our approach leverages the compositionality of both value
-                      functions and language, with the aim of reducing the sample
-                      complexity of learning novel tasks.
-                    </div>
-                    <br>
-
-                    <!-- Collaborators -->
-                    <div id="indexWorkText">
-                       Led by <a href="https://www.vanyacohen.com/">Vanya Cohen</a>, joint with myself, <a href="https://nakulgopalan.github.io/">Nakul Gopalan</a>, <a href="https://sdjames.me/">Steven James</a>, <a href="https://core-robotics.gatech.edu/people/matthew-gombolay/">Matthew Gombolay</a>, and <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>.
-                    </div>
-                    <br>
-                    <br>
-                </td>
-            </tr>
-            <!-- __________________________________________________________________________________________________________________________ -->
-
-            <!-- Work -->
-            <tr style="border-bottom:1px solid #e5e5e5;">
-              <!-- IMAGE -->
-              <td>
-                  <img class="workPicture" src="files/images/task_algebra.jpg" alt="Thesis overview">
-              </td>
-
-              <!-- TITLE AND INFO -->
-              <td>
-                  <br>
-                  <div id="indexWorkText">
-                      <!-- Title + Link -->
-                      <b><a href="files/papers/Thesis_msc.pdf" onclick="gtag('_trackEvent', 'Click', 'Thesis (b) Clicked');">A Task Algebra For Agents In Reinforcement Learning</a></b>
-                      <br>
-                      <i>M.Sc Thesis, 2020</i>
-                  </div>
-                  <br>
-                  <!-- One sentence description -->
-                  <div id="indexWorkText">
-                    We propose a framework for defining lattice algebras and Boolean
-                    algebras in particular over the space of tasks. This allows us to formulate new tasks in terms of the negation,
-                    disjunction, and conjunction of a set of base tasks. We then show that by learning a new type of goal-oriented value
-                    functions and restricting the rewards of the tasks, an agent can solve composite tasks with no further learning.
-                  </div>
-                  <br>
-
-                  <!-- Collaborators -->
-                  <div id="indexWorkText">
-                      Advised by <a href="https://sdjames.me/">Steven James</a> and <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>.
-                  </div>
-                  <br>
-                  <br>
-              </td>
-          </tr>
-          <!-- __________________________________________________________________________________________________________________________ -->
-
-            <!-- Work -->
-            <tr style="border-bottom:1px solid #e5e5e5;">
-                <!-- IMAGE -->
-                <td>
-                        <img class="workPicture" src="files/images/boolean_algebra.png" alt="Boolean Task Algebra">
-                </td>
-
-                <!-- TITLE AND INFO -->
-                <td>
-                    <br>
-                    <div id="indexWorkText">
-                        <!-- Title + Link -->
-                        <b><a href="files/papers/boolean_algebra_neurips_2020.pdf" onclick="gtag('_trackEvent', 'Click', 'Boolean Algebra Paper Clicked');">A Boolean Task Algebra For Reinforcement Learning</a></b>
-                        <br>
-                        <b><a href="files/posters/NeurIPS2020_boolean_algebra_poster.pdf">Poster</a></b> @ <i>NeurIPS 2020</i>
-                    </div>
-                    <br>
-                    <!-- One sentence description -->
-                    <div id="indexWorkText">
-                      We propose a framework for defining a Boolean algebra over the space of tasks.
-                      This allows us to formulate new tasks in terms of the negation, disjunction and
-                      conjunction of a set of base tasks. We then show that by learning goal-oriented
-                      value functions and restricting the transition dynamics of the tasks, an agent can
-                      solve these new tasks with no further learning. We prove that by composing these
-                      value functions in specific ways, we immediately recover the optimal policies for
-                      all tasks expressible under the Boolean algebra
-                    </div>
-                    <br>
-
-                    <!-- Collaborators -->
-                    <div id="indexWorkText">
-                      Joint work with <a href="https://sdjames.me/">Steven James</a> and <a href="https://www.benjaminrosman.com/">Benjamin Rosman</a>.
-                    </div>
-                    <br>
-                    <br>
-                </td>
-            </tr>
-            <!-- __________________________________________________________________________________________________________________________ -->
+        <div style="border-bottom:1px solid #e5e5e5;">
+          <div class='paper_line'><a href="files/papers/Composition and Zero-Shot Transfer with Lattice Structures in RL jair 2025.pdf"> Composition and Zero-Shot Transfer with Lattice Structures in Reinforcement Learning</a>
+            | <b><a href="files/slides/JAIR_2025_RLC_Composition.pdf">Slides</a></b>
+          </div>
+            <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Steven James, Benjamin Rosman.</div>
+            <div class='paper_line'><i>JAIR 2025, presented @ RLC 2025</i>.</div>
+            <div class="cite-row">
+              <a class="cite-img-link" href="files/images/JAIR_2025_RLC_Composition.gif" target="_blank" rel="noopener">
+                <img class="cite-img" src="files/images/bounds.png" alt="Paper Thumbnail" style="height:70px;margin-bottom: 10px;"/>
+                <img class="cite-img" src="files/images/ant_composition.gif" alt="Paper Thumbnail" style="height:140px;"/>
+              </a>
             
-            
-            <!-- Work -->
-            <tr style="border-bottom:1px solid #e5e5e5;">
-              <!-- IMAGE -->
-              <td>
-                  <img class="workPicture" src="files/images/hypersearch.jpg" alt="Thesis overview">
-              </td>
-
-              <!-- TITLE AND INFO -->
-              <td>
-                  <br>
-                  <div id="indexWorkText">
-                      <!-- Title + Link -->
-                      <b><a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=cnVjaXMuY28uemF8Y3N8Z3g6NGNlM2RmODY2OGZmOTlkYQ" onclick="gtag('_trackEvent', 'Click', 'Thesis (a) Clicked');">Hypersearch: A Parallel Training Approach For Improving Neural Networks Performance</a></b>
-                      <br>
-                      <b><a href="files/posters/BAI_19.pdf">Poster</a></b> @ BAI @ NeurIPS 2019; <i>B.Sc.H Thesis, 2018</i>
-                      <!-- <br>
-                      <i><a href="files/papers/BAI_NIPS_Workshop.pdf" onclick="gtag('_trackEvent', 'Click', 'Thesis (a) Clicked');">Extended abstract</a>: 
-                        Black in AI workshop at NeurIPS 2019.</i> -->
+              <div class="cite-prewrap">
+                <div class='callout'>
+                  <b style="font-size: 30px; text-align: center;"><i>Blessing of dimensionality!</i></b> 
+                  <ul>
+                    <li>Ensures <b>reward functions</b> in practice (e.g. dense) <b>respect logical axioms</b>.</li>
+                    <li>Construct a <b>Boolean task basis</b> which can be used to generate a <b>minimal</b> task specification language.</li>
+                    <li>Use WVFs to <b>guarantee zero-shot</b> performance <b>without spoon-feeding</b> (e.g. episodic-goals, intrinsic rewards, auxiliary objectives).
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p></p>
+          </div>
+          <!-- __________________________________________________________________________________________________________________________ -->
+           
+          <div style="border-bottom:1px solid #e5e5e5;">
+            <div class='paper_line'><a href="files/papers/skill_machines_iclr_2024.pdf"> Skill Machines: Temporal Logic Skill Composition in Reinforcement Learning</a> 
+              | <b><a href="https://github.com/geraudnt/skill_machines">Code</a></b>
+              | <b><a href="blogposts/skill_machines.html">Blog</a></b>
+              | <b><a href="https://www.youtube.com/v/Q3GArdgAABM">Video</a></b>
+            </div>
+              <div class='paper_line'><b>Geraud Nangue Tasse</b>*, D. Jarvis, Steven James, Benjamin Rosman.</div>
+              <div class='paper_line'><i>ICLR 2024</i>.</div>
+              <div class="cite-row">
+                <a class="cite-img-link" href="files/images/zeroshot_Safety-Task-2-v0.gif" target="_blank" rel="noopener">
+                  <img class="cite-img" src="files/images/zeroshot_Safety-Task-2-v0.gif" alt="Paper Thumbnail"/>
+                </a>
+              
+                <div class="cite-prewrap">
+                  <div class='callout'>
+                    <b style="font-size: 30px; text-align: center;"><i>Options are not enough!</i></b> 
+                    <ul>
+                      <li>We introduce infinitely composable <b>skill primitives</b> to address the <b>super-exponential</b> spatial and temporal <b>curses of dimensionality</b>.</li>
+                      <li>Learning necessary skill primitives enables <b>zero-shot near-optimal</b> policies for <b>any new temporal logic task</b>.</li>
+                      <li>Skill machines (SM) can be learned directly from reward machines and are <b>satisficing</b>, with fewshot optimality.
+                      </li>
+                    </ul>
                   </div>
-                  <br>
-                  <!-- One sentence description -->
-                  <div id="indexWorkText">
-                    This work proposes a novel embarrassingly parallel algorithm, Hypersearch, that takes advantage of both worlds:
-                    hyperparameter optimization and parallel programming. Hypersearch works by training multiple neural networks
-                    of same architecture but different hyperparameters in parallel while optimizing both networks and hyperparameters.
+                </div>
+              </div>
+              <p></p>
+          </div>
+          <!-- __________________________________________________________________________________________________________________________ -->
+           
+          <div style="border-bottom:1px solid #e5e5e5;">
+            <div class='paper_line'><a href="files/papers/8_ROSARL_Reward_Only_Safe_RL_RLSW_RLC_2024.pdf"> ROSARL: Reward-Only Safe Reinforcement Learning</a> | <b><a href="https://github.com/geraudnt/rosarl">Code</a></b></div>
+              <div class='paper_line'><b>Geraud Nangue Tasse</b>*,  Tamlin Love, Mark Nemecek, Steven James, Benjamin Rosman.</div>
+              <div class='paper_line'><i>Reinforcement Learning Safety Workshop (RLSW) @ RLC, 2024</i>.</div>
+              <div class="cite-row">
+                <a class="cite-img-link" href="files/images/rosarl.gif" target="_blank" rel="noopener">
+                  <img class="cite-img" src="files/images/rosarl.gif" alt="Paper Thumbnail"/>
+                </a>
+              
+                <div class="cite-prewrap">
+                  <div class='callout'>
+                    <b style="font-size: 30px; text-align: center;"><i>Reward is enough for Safe RL!</i></b> <br> 
+                    The paper introduces a new framework for safe RL where the agent learns safe policies solely from scalar rewards using any suitable RL algorithm. 
+                    This is achieved by replacing the rewards at unsafe terminal states by the minmax penalty, 
+                    which is the strict upperbound reward whose optimal policy minimises the probability of reaching unsafe states.
                   </div>
-                  <br>
-
-                  <!-- Collaborators -->
-                  <div id="indexWorkText">
-                      Advised by <a href="https://www.ru.ac.za/computerscience/people/academicstaff/mrjamesconnan/">James Connan</a>.
-                  </div>
-                  <br>
-                  <br>
-              </td>
-          </tr>
+                </div>
+              </div>
+            <p></p>
+          </div>
           <!-- __________________________________________________________________________________________________________________________ -->
 
-            
-        </table>
+          <div style="border-bottom:10px solid #e5e5e5;">
+            <div class='paper_line'><a href="files/papers/RLDM2022__world_value_function.pdf"> World Value Functions: Knowledge Representation for Multitask
+              Reinforcement Learning</a></div>
+              <div class='paper_line'><b>Geraud Nangue Tasse</b>*, Steven James, Benjamin Rosman.</div>
+              <div class='paper_line'><i>Reinforcement Learning and Decision Making Conference (RLDM), 2022</i>.</div>
+              <div class="cite-row">
+                <a class="cite-img-link" href="blogposts/boolean_task_algebra/blue_all.gif" target="_blank" rel="noopener">
+                  <img class="cite-img" src="blogposts/boolean_task_algebra/blue_all.gif" alt="Paper Thumbnail"/>
+                </a>
+              
+                <div class="cite-prewrap">
+                  <div class='callout'>
+                    <b style="font-size: 30px; text-align: center;"><i>One rep. to rule them all!</i></b> <br>                    
+                    <b>Intuition:</b> while solving one task, we should learn about other tasks that we may need to solve in the future.
+                    <ul>
+                      <li><b>No spoon-feeding:</b> At each step, the goal to achieve is agent-choosen, not environment-given.</li>
+                      <li><b>Mastery:</b> Learns to achieve all possible goal states, and their value in the current task. N.B. Necessary for compositional generalisation</li>
+                      <li><b>True RL:</b> No task-specific intrinsic rewards are given. Learning is driven solely from maximisation of scalar environment rewards from a single stream of experience</b>.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <p></p>
+          </div>
+          <!-- __________________________________________________________________________________________________________________________ -->
+           
+           
+          <!-- <div style="border-bottom:1px solid #e5e5e5;">
+          </div> -->
+          <!-- __________________________________________________________________________________________________________________________ -->
+           
 
         <!-- PERSONAL -->
-        <h4>Personal</h4>
+        <h1>Personal</h1>
 
         <p> <b>Reality:</b> Shows me a new quality anime; <br> <b>Me:</b> Now this, does put a smile on my face.</p>
 
